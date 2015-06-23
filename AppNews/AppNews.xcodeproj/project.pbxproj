@@ -66,9 +66,6 @@
 		3D46928B1B2F3E41009A852D /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D46928A1B2F3E41009A852D /* UIBarButtonItem+Extension.m */; };
 		3D5602C21B38FC4C007883B6 /* SCDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D5602C11B38FC4C007883B6 /* SCDetailViewController.m */; };
 		3D5F282B1B30FDC00025AC85 /* SCEverydayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D5F282A1B30FDC00025AC85 /* SCEverydayCell.m */; };
-		3D5F282E1B30FE1F0025AC85 /* SCEverydayDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D5F282D1B30FE1F0025AC85 /* SCEverydayDemo.m */; };
-		3D5F28311B30FE360025AC85 /* SCEverydayDemoFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D5F28301B30FE360025AC85 /* SCEverydayDemoFrame.m */; };
-		3D5F28341B30FED90025AC85 /* SCEverydayDemoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D5F28331B30FED90025AC85 /* SCEverydayDemoItem.m */; };
 		3D5F28471B3105690025AC85 /* MJConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D5F28371B3105690025AC85 /* MJConst.m */; };
 		3D5F28481B3105690025AC85 /* MJFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D5F283A1B3105690025AC85 /* MJFoundation.m */; };
 		3D5F28491B3105690025AC85 /* MJProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D5F283C1B3105690025AC85 /* MJProperty.m */; };
@@ -102,6 +99,14 @@
 		3D88C78D1B306C080073A6EA /* UIWindow+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D88C78C1B306C080073A6EA /* UIWindow+Extension.m */; };
 		3D88C7911B3070030073A6EA /* SCAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D88C7901B3070030073A6EA /* SCAccount.m */; };
 		3D88C7941B3077750073A6EA /* SCAccountTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D88C7931B3077750073A6EA /* SCAccountTool.m */; };
+		3DC538291B39C51A008689E0 /* SCDetailCommentsData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC538201B39C51A008689E0 /* SCDetailCommentsData.m */; };
+		3DC5382A1B39C51A008689E0 /* SCDetailDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC538221B39C51A008689E0 /* SCDetailDemo.m */; };
+		3DC5382B1B39C51A008689E0 /* SCDetailDemoAuthor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC538241B39C51A008689E0 /* SCDetailDemoAuthor.m */; };
+		3DC5382C1B39C51A008689E0 /* SCDetailLikesData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC538261B39C51A008689E0 /* SCDetailLikesData.m */; };
+		3DC5382D1B39C51A008689E0 /* SCReplyCommentAuthor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC538281B39C51A008689E0 /* SCReplyCommentAuthor.m */; };
+		3DC538351B39C684008689E0 /* SCEverydayDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC538301B39C684008689E0 /* SCEverydayDemo.m */; };
+		3DC538361B39C684008689E0 /* SCEverydayDemoFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC538321B39C684008689E0 /* SCEverydayDemoFrame.m */; };
+		3DC538371B39C684008689E0 /* SCEverydayDemoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC538341B39C684008689E0 /* SCEverydayDemoItem.m */; };
 		3DD924781B350204003F3105 /* SCWorkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD924771B350204003F3105 /* SCWorkTool.m */; };
 		3DD9247B1B350279003F3105 /* SCSpecialItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD9247A1B350279003F3105 /* SCSpecialItem.m */; };
 		3DD9247F1B350BF6003F3105 /* SCSpecialCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD9247D1B350BF6003F3105 /* SCSpecialCell.m */; };
@@ -239,12 +244,6 @@
 		3D5602C11B38FC4C007883B6 /* SCDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDetailViewController.m; sourceTree = "<group>"; };
 		3D5F28291B30FDBF0025AC85 /* SCEverydayCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCEverydayCell.h; sourceTree = "<group>"; };
 		3D5F282A1B30FDC00025AC85 /* SCEverydayCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCEverydayCell.m; sourceTree = "<group>"; };
-		3D5F282C1B30FE1F0025AC85 /* SCEverydayDemo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCEverydayDemo.h; sourceTree = "<group>"; };
-		3D5F282D1B30FE1F0025AC85 /* SCEverydayDemo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCEverydayDemo.m; sourceTree = "<group>"; };
-		3D5F282F1B30FE360025AC85 /* SCEverydayDemoFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCEverydayDemoFrame.h; sourceTree = "<group>"; };
-		3D5F28301B30FE360025AC85 /* SCEverydayDemoFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCEverydayDemoFrame.m; sourceTree = "<group>"; };
-		3D5F28321B30FED90025AC85 /* SCEverydayDemoItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCEverydayDemoItem.h; sourceTree = "<group>"; };
-		3D5F28331B30FED90025AC85 /* SCEverydayDemoItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCEverydayDemoItem.m; sourceTree = "<group>"; };
 		3D5F28361B3105690025AC85 /* MJConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJConst.h; sourceTree = "<group>"; };
 		3D5F28371B3105690025AC85 /* MJConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJConst.m; sourceTree = "<group>"; };
 		3D5F28381B3105690025AC85 /* MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJExtension.h; sourceTree = "<group>"; };
@@ -305,6 +304,22 @@
 		3D88C7901B3070030073A6EA /* SCAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCAccount.m; sourceTree = "<group>"; };
 		3D88C7921B3077750073A6EA /* SCAccountTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCAccountTool.h; sourceTree = "<group>"; };
 		3D88C7931B3077750073A6EA /* SCAccountTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCAccountTool.m; sourceTree = "<group>"; };
+		3DC5381F1B39C51A008689E0 /* SCDetailCommentsData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDetailCommentsData.h; sourceTree = "<group>"; };
+		3DC538201B39C51A008689E0 /* SCDetailCommentsData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDetailCommentsData.m; sourceTree = "<group>"; };
+		3DC538211B39C51A008689E0 /* SCDetailDemo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDetailDemo.h; sourceTree = "<group>"; };
+		3DC538221B39C51A008689E0 /* SCDetailDemo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDetailDemo.m; sourceTree = "<group>"; };
+		3DC538231B39C51A008689E0 /* SCDetailDemoAuthor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDetailDemoAuthor.h; sourceTree = "<group>"; };
+		3DC538241B39C51A008689E0 /* SCDetailDemoAuthor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDetailDemoAuthor.m; sourceTree = "<group>"; };
+		3DC538251B39C51A008689E0 /* SCDetailLikesData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDetailLikesData.h; sourceTree = "<group>"; };
+		3DC538261B39C51A008689E0 /* SCDetailLikesData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDetailLikesData.m; sourceTree = "<group>"; };
+		3DC538271B39C51A008689E0 /* SCReplyCommentAuthor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCReplyCommentAuthor.h; sourceTree = "<group>"; };
+		3DC538281B39C51A008689E0 /* SCReplyCommentAuthor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCReplyCommentAuthor.m; sourceTree = "<group>"; };
+		3DC5382F1B39C684008689E0 /* SCEverydayDemo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCEverydayDemo.h; sourceTree = "<group>"; };
+		3DC538301B39C684008689E0 /* SCEverydayDemo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCEverydayDemo.m; sourceTree = "<group>"; };
+		3DC538311B39C684008689E0 /* SCEverydayDemoFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCEverydayDemoFrame.h; sourceTree = "<group>"; };
+		3DC538321B39C684008689E0 /* SCEverydayDemoFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCEverydayDemoFrame.m; sourceTree = "<group>"; };
+		3DC538331B39C684008689E0 /* SCEverydayDemoItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCEverydayDemoItem.h; sourceTree = "<group>"; };
+		3DC538341B39C684008689E0 /* SCEverydayDemoItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCEverydayDemoItem.m; sourceTree = "<group>"; };
 		3DD924761B350204003F3105 /* SCWorkTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCWorkTool.h; sourceTree = "<group>"; };
 		3DD924771B350204003F3105 /* SCWorkTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCWorkTool.m; sourceTree = "<group>"; };
 		3DD924791B350279003F3105 /* SCSpecialItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCSpecialItem.h; sourceTree = "<group>"; };
@@ -417,10 +432,10 @@
 		3D4691BF1B2EE684009A852D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				3D5602C01B38FC4C007883B6 /* SCDetailViewController.h */,
-				3D5602C11B38FC4C007883B6 /* SCDetailViewController.m */,
 				3D4691C01B2EE684009A852D /* SCEverydayController.h */,
 				3D4691C11B2EE684009A852D /* SCEverydayController.m */,
+				3D5602C01B38FC4C007883B6 /* SCDetailViewController.h */,
+				3D5602C11B38FC4C007883B6 /* SCDetailViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -428,12 +443,8 @@
 		3D4691C21B2EE684009A852D /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				3D5F282C1B30FE1F0025AC85 /* SCEverydayDemo.h */,
-				3D5F282D1B30FE1F0025AC85 /* SCEverydayDemo.m */,
-				3D5F28321B30FED90025AC85 /* SCEverydayDemoItem.h */,
-				3D5F28331B30FED90025AC85 /* SCEverydayDemoItem.m */,
-				3D5F282F1B30FE360025AC85 /* SCEverydayDemoFrame.h */,
-				3D5F28301B30FE360025AC85 /* SCEverydayDemoFrame.m */,
+				3DC5382E1B39C684008689E0 /* 每日模块模型 */,
+				3DC5381E1B39C51A008689E0 /* 详情模型 */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -919,6 +930,36 @@
 			path = Tool;
 			sourceTree = "<group>";
 		};
+		3DC5381E1B39C51A008689E0 /* 详情模型 */ = {
+			isa = PBXGroup;
+			children = (
+				3DC5381F1B39C51A008689E0 /* SCDetailCommentsData.h */,
+				3DC538201B39C51A008689E0 /* SCDetailCommentsData.m */,
+				3DC538211B39C51A008689E0 /* SCDetailDemo.h */,
+				3DC538221B39C51A008689E0 /* SCDetailDemo.m */,
+				3DC538231B39C51A008689E0 /* SCDetailDemoAuthor.h */,
+				3DC538241B39C51A008689E0 /* SCDetailDemoAuthor.m */,
+				3DC538251B39C51A008689E0 /* SCDetailLikesData.h */,
+				3DC538261B39C51A008689E0 /* SCDetailLikesData.m */,
+				3DC538271B39C51A008689E0 /* SCReplyCommentAuthor.h */,
+				3DC538281B39C51A008689E0 /* SCReplyCommentAuthor.m */,
+			);
+			path = "详情模型";
+			sourceTree = "<group>";
+		};
+		3DC5382E1B39C684008689E0 /* 每日模块模型 */ = {
+			isa = PBXGroup;
+			children = (
+				3DC5382F1B39C684008689E0 /* SCEverydayDemo.h */,
+				3DC538301B39C684008689E0 /* SCEverydayDemo.m */,
+				3DC538311B39C684008689E0 /* SCEverydayDemoFrame.h */,
+				3DC538321B39C684008689E0 /* SCEverydayDemoFrame.m */,
+				3DC538331B39C684008689E0 /* SCEverydayDemoItem.h */,
+				3DC538341B39C684008689E0 /* SCEverydayDemoItem.m */,
+			);
+			path = "每日模块模型";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1035,8 +1076,10 @@
 				3D46927C1B2EE685009A852D /* UIImage+GIF.m in Sources */,
 				3D4692541B2EE685009A852D /* SCNewController.m in Sources */,
 				3D4692821B2EE685009A852D /* SVIndefiniteAnimatedView.m in Sources */,
+				3DC5382B1B39C51A008689E0 /* SCDetailDemoAuthor.m in Sources */,
 				3D4692851B2EE685009A852D /* UIView+AutoLayout.m in Sources */,
 				3D88C78A1B3065F40073A6EA /* NSString+Extension.m in Sources */,
+				3DC5382C1B39C51A008689E0 /* SCDetailLikesData.m in Sources */,
 				3D4692671B2EE685009A852D /* MJRefreshComponent.m in Sources */,
 				3D4692761B2EE685009A852D /* SDWebImageDecoder.m in Sources */,
 				3D88C7911B3070030073A6EA /* SCAccount.m in Sources */,
@@ -1046,9 +1089,9 @@
 				3DD924891B3528C0003F3105 /* SCFlowLayout.m in Sources */,
 				3D4692631B2EE685009A852D /* AwesomeMenu.m in Sources */,
 				3DD924781B350204003F3105 /* SCWorkTool.m in Sources */,
+				3DC538351B39C684008689E0 /* SCEverydayDemo.m in Sources */,
 				3D4692861B2EE685009A852D /* SCSpecialController.m in Sources */,
 				3D5602C21B38FC4C007883B6 /* SCDetailViewController.m in Sources */,
-				3D5F282E1B30FE1F0025AC85 /* SCEverydayDemo.m in Sources */,
 				3D4692581B2EE685009A852D /* UIView+Extension.m in Sources */,
 				3DD9247B1B350279003F3105 /* SCSpecialItem.m in Sources */,
 				3D46925C1B2EE685009A852D /* AFHTTPSessionManager.m in Sources */,
@@ -1071,12 +1114,12 @@
 				3D4692611B2EE685009A852D /* AFURLResponseSerialization.m in Sources */,
 				3D61D0A81B2FD1230014ED51 /* SCNewfeatureController.m in Sources */,
 				3D6ACCE51B37D02D00D2AA28 /* SCProfileLikes.m in Sources */,
+				3DC5382A1B39C51A008689E0 /* SCDetailDemo.m in Sources */,
 				3D5F284D1B3105690025AC85 /* NSObject+MJProperty.m in Sources */,
 				3D6E177C1B3305C300663AE8 /* SCNewDemoItem.m in Sources */,
 				3D46926D1B2EE685009A852D /* MJRefreshLegendFooter.m in Sources */,
 				3D4692701B2EE685009A852D /* UIScrollView+MJRefresh.m in Sources */,
 				3D4692691B2EE685009A852D /* MJRefreshFooter.m in Sources */,
-				3D5F28311B30FE360025AC85 /* SCEverydayDemoFrame.m in Sources */,
 				3D4692621B2EE685009A852D /* AFURLSessionManager.m in Sources */,
 				3D5F284C1B3105690025AC85 /* NSObject+MJKeyValue.m in Sources */,
 				3D5F28491B3105690025AC85 /* MJProperty.m in Sources */,
@@ -1093,7 +1136,6 @@
 				3D4692801B2EE685009A852D /* UIImageView+WebCache.m in Sources */,
 				3D728FF71B36476F005EAA30 /* SCProfileIntroduction.m in Sources */,
 				3D46926C1B2EE685009A852D /* MJRefreshHeader.m in Sources */,
-				3D5F28341B30FED90025AC85 /* SCEverydayDemoItem.m in Sources */,
 				3D46928B1B2F3E41009A852D /* UIBarButtonItem+Extension.m in Sources */,
 				3D5F28471B3105690025AC85 /* MJConst.m in Sources */,
 				3D4692751B2EE685009A852D /* SDWebImageCompat.m in Sources */,
@@ -1110,12 +1152,16 @@
 				3D5F284E1B3105690025AC85 /* NSString+Extension.m in Sources */,
 				3D46926E1B2EE685009A852D /* MJRefreshLegendHeader.m in Sources */,
 				3D5F282B1B30FDC00025AC85 /* SCEverydayCell.m in Sources */,
+				3DC538371B39C684008689E0 /* SCEverydayDemoItem.m in Sources */,
+				3DC5382D1B39C51A008689E0 /* SCReplyCommentAuthor.m in Sources */,
 				3D4692561B2EE685009A852D /* Foundation+Log.m in Sources */,
 				3D4692721B2EE685009A852D /* MKAnnotationView+WebCache.m in Sources */,
 				3D4692651B2EE685009A852D /* Colours.m in Sources */,
+				3DC538291B39C51A008689E0 /* SCDetailCommentsData.m in Sources */,
 				3D46927A1B2EE685009A852D /* SDWebImagePrefetcher.m in Sources */,
 				3D88C7941B3077750073A6EA /* SCAccountTool.m in Sources */,
 				3D5F28481B3105690025AC85 /* MJFoundation.m in Sources */,
+				3DC538361B39C684008689E0 /* SCEverydayDemoFrame.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

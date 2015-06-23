@@ -98,15 +98,16 @@ static NSInteger page = 1;
 }
 - (void)loadLikesData:(UIRefreshControl *)refresh
 {
-    [MBProgressHUD showMessage:@"加载中..."];
     AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
     
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"pagesize"] = @10;
     
     if (self.likesDemos.count > 0) {
-        [self.likesDemos removeAllObjects];
-        page = 1;
+        [refresh endRefreshing];
+        return;
+    } else {
+        [MBProgressHUD showMessage:@"加载中..."];
     }
 #warning todo 读取离线缓存_待做
     NSString *url = [NSString stringWithFormat:@"http://www.demo8.com/api/product?page=%zd&pagesize=10&sort=inputtime", page];
@@ -195,7 +196,6 @@ static NSInteger page = 1;
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
 #warning 有bug,当点击其它tabBarItem时选项栏还会卡在导航条
-    NSLog(@"-------->> %f", -scrollView.contentOffset.y);
     double deltaDistance = -scrollView.contentOffset.y;
     if (deltaDistance <= (SCNaviBar + SCOptionH)) { // 卡住
         self.optionMenu.userInteractionEnabled = YES;
