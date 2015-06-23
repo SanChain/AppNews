@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="gTV-IL-0wX" customClass="SCSpecialCell">
+            <rect key="frame" x="0.0" y="0.0" width="197" height="94"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="197" height="94"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fYk-7t-nmW" userLabel="title">
+                        <rect key="frame" x="0.0" y="80" width="197" height="14"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3YN-oe-ik3">
+                        <rect key="frame" x="0.0" y="0.0" width="197" height="80"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="80" id="9j5-Cv-fhL"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <constraints>
+                <constraint firstItem="fYk-7t-nmW" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="5qJ-Y0-xg4"/>
+                <constraint firstAttribute="trailing" secondItem="3YN-oe-ik3" secondAttribute="trailing" id="HKB-py-opG"/>
+                <constraint firstAttribute="trailing" secondItem="fYk-7t-nmW" secondAttribute="trailing" id="UER-95-Z0N"/>
+                <constraint firstItem="3YN-oe-ik3" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="cbN-Sf-9gZ"/>
+                <constraint firstItem="fYk-7t-nmW" firstAttribute="top" secondItem="3YN-oe-ik3" secondAttribute="bottom" id="chb-TE-bqe"/>
+                <constraint firstItem="3YN-oe-ik3" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="dYI-sY-qwj"/>
+                <constraint firstAttribute="bottom" secondItem="fYk-7t-nmW" secondAttribute="bottom" id="l9j-cG-inU"/>
+            </constraints>
+            <size key="customSize" width="201" height="89"/>
+            <connections>
+                <outlet property="itemImage" destination="3YN-oe-ik3" id="vsx-Yn-ysO"/>
+                <outlet property="itemTitle" destination="fYk-7t-nmW" id="Q0f-Uq-Qpu"/>
+            </connections>
+            <point key="canvasLocation" x="595.5" y="202"/>
+        </collectionViewCell>
+    </objects>
+</document>

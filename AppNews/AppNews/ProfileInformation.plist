@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>nickname</key>
+	<string>SanChain</string>
+	<key>intro</key>
+	<string>coder</string>
+	<key>likesApp</key>
+	<string>喜欢的APP</string>
+	<key>avatar</key>
+	<string>http://www.demo8.com/uploadfile/avatar/000/06/01/17_avatar_big.jpg</string>
+</dict>
+</plist>
