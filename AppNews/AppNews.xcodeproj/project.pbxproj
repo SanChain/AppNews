@@ -82,6 +82,14 @@
 		3D6E177C1B3305C300663AE8 /* SCNewDemoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6E177B1B3305C300663AE8 /* SCNewDemoItem.m */; };
 		3D6E17801B33256000663AE8 /* SCNewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6E177E1B33255F00663AE8 /* SCNewCell.m */; };
 		3D6E17811B33256000663AE8 /* SCNewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D6E177F1B33255F00663AE8 /* SCNewCell.xib */; };
+		3D70299F1B3AF34800D4B9E8 /* SCDetailFirstCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7029941B3AF34800D4B9E8 /* SCDetailFirstCell.m */; };
+		3D7029A01B3AF34800D4B9E8 /* SCDetailFirstCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D7029951B3AF34800D4B9E8 /* SCDetailFirstCell.xib */; };
+		3D7029A11B3AF34800D4B9E8 /* SCFourthCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7029971B3AF34800D4B9E8 /* SCFourthCell.m */; };
+		3D7029A21B3AF34800D4B9E8 /* SCFourthCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D7029981B3AF34800D4B9E8 /* SCFourthCell.xib */; };
+		3D7029A31B3AF34800D4B9E8 /* SCSecondCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D70299A1B3AF34800D4B9E8 /* SCSecondCell.m */; };
+		3D7029A41B3AF34800D4B9E8 /* SCSecondCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D70299B1B3AF34800D4B9E8 /* SCSecondCell.xib */; };
+		3D7029A51B3AF34800D4B9E8 /* SCThirdCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D70299D1B3AF34800D4B9E8 /* SCThirdCell.m */; };
+		3D7029A61B3AF34800D4B9E8 /* SCThirdCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D70299E1B3AF34800D4B9E8 /* SCThirdCell.xib */; };
 		3D728FF71B36476F005EAA30 /* SCProfileIntroduction.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D728FF61B36476F005EAA30 /* SCProfileIntroduction.m */; };
 		3D7290091B368067005EAA30 /* SCTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7290071B368067005EAA30 /* SCTableViewCell.m */; };
 		3D72900A1B368067005EAA30 /* SCTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D7290081B368067005EAA30 /* SCTableViewCell.xib */; };
@@ -275,6 +283,18 @@
 		3D6E177D1B33255F00663AE8 /* SCNewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCNewCell.h; sourceTree = "<group>"; };
 		3D6E177E1B33255F00663AE8 /* SCNewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCNewCell.m; sourceTree = "<group>"; };
 		3D6E177F1B33255F00663AE8 /* SCNewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SCNewCell.xib; sourceTree = "<group>"; };
+		3D7029931B3AF34800D4B9E8 /* SCDetailFirstCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDetailFirstCell.h; sourceTree = "<group>"; };
+		3D7029941B3AF34800D4B9E8 /* SCDetailFirstCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDetailFirstCell.m; sourceTree = "<group>"; };
+		3D7029951B3AF34800D4B9E8 /* SCDetailFirstCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SCDetailFirstCell.xib; sourceTree = "<group>"; };
+		3D7029961B3AF34800D4B9E8 /* SCFourthCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCFourthCell.h; sourceTree = "<group>"; };
+		3D7029971B3AF34800D4B9E8 /* SCFourthCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCFourthCell.m; sourceTree = "<group>"; };
+		3D7029981B3AF34800D4B9E8 /* SCFourthCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SCFourthCell.xib; sourceTree = "<group>"; };
+		3D7029991B3AF34800D4B9E8 /* SCSecondCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCSecondCell.h; sourceTree = "<group>"; };
+		3D70299A1B3AF34800D4B9E8 /* SCSecondCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCSecondCell.m; sourceTree = "<group>"; };
+		3D70299B1B3AF34800D4B9E8 /* SCSecondCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SCSecondCell.xib; sourceTree = "<group>"; };
+		3D70299C1B3AF34800D4B9E8 /* SCThirdCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCThirdCell.h; sourceTree = "<group>"; };
+		3D70299D1B3AF34800D4B9E8 /* SCThirdCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCThirdCell.m; sourceTree = "<group>"; };
+		3D70299E1B3AF34800D4B9E8 /* SCThirdCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SCThirdCell.xib; sourceTree = "<group>"; };
 		3D728FF51B36476F005EAA30 /* SCProfileIntroduction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCProfileIntroduction.h; sourceTree = "<group>"; };
 		3D728FF61B36476F005EAA30 /* SCProfileIntroduction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCProfileIntroduction.m; sourceTree = "<group>"; };
 		3D7290061B368067005EAA30 /* SCTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCTableViewCell.h; sourceTree = "<group>"; };
@@ -454,6 +474,7 @@
 			children = (
 				3D5F28291B30FDBF0025AC85 /* SCEverydayCell.h */,
 				3D5F282A1B30FDC00025AC85 /* SCEverydayCell.m */,
+				3D7029921B3AF34800D4B9E8 /* 详情View */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -879,6 +900,25 @@
 			path = Model/Entry;
 			sourceTree = "<group>";
 		};
+		3D7029921B3AF34800D4B9E8 /* 详情View */ = {
+			isa = PBXGroup;
+			children = (
+				3D7029931B3AF34800D4B9E8 /* SCDetailFirstCell.h */,
+				3D7029941B3AF34800D4B9E8 /* SCDetailFirstCell.m */,
+				3D7029951B3AF34800D4B9E8 /* SCDetailFirstCell.xib */,
+				3D7029961B3AF34800D4B9E8 /* SCFourthCell.h */,
+				3D7029971B3AF34800D4B9E8 /* SCFourthCell.m */,
+				3D7029981B3AF34800D4B9E8 /* SCFourthCell.xib */,
+				3D7029991B3AF34800D4B9E8 /* SCSecondCell.h */,
+				3D70299A1B3AF34800D4B9E8 /* SCSecondCell.m */,
+				3D70299B1B3AF34800D4B9E8 /* SCSecondCell.xib */,
+				3D70299C1B3AF34800D4B9E8 /* SCThirdCell.h */,
+				3D70299D1B3AF34800D4B9E8 /* SCThirdCell.m */,
+				3D70299E1B3AF34800D4B9E8 /* SCThirdCell.xib */,
+			);
+			path = "详情View";
+			sourceTree = "<group>";
+		};
 		3D8092321B345DF800360A66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -1042,8 +1082,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D3F9F431B2BD43500687759 /* LaunchScreen.xib in Resources */,
+				3D7029A61B3AF34800D4B9E8 /* SCThirdCell.xib in Resources */,
 				3D4692831B2EE685009A852D /* SVProgressHUD.bundle in Resources */,
 				3DD924801B350BF6003F3105 /* SCSpecialCell.xib in Resources */,
+				3D7029A41B3AF34800D4B9E8 /* SCSecondCell.xib in Resources */,
 				3D88C7761B3023970073A6EA /* SCLoginViewController.xib in Resources */,
 				3D7290881B36D92C005EAA30 /* SCOptionMenuView.xib in Resources */,
 				3D3F9F401B2BD43500687759 /* Images.xcassets in Resources */,
@@ -1052,7 +1094,9 @@
 				3D4692881B2F357D009A852D /* ProfileInformation.plist in Resources */,
 				3D4692661B2EE685009A852D /* MJRefresh.bundle in Resources */,
 				3D6E17811B33256000663AE8 /* SCNewCell.xib in Resources */,
+				3D7029A21B3AF34800D4B9E8 /* SCFourthCell.xib in Resources */,
 				3D88C7861B30581F0073A6EA /* MBProgressHUD.bundle in Resources */,
+				3D7029A01B3AF34800D4B9E8 /* SCDetailFirstCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1091,10 +1135,12 @@
 				3DD924781B350204003F3105 /* SCWorkTool.m in Sources */,
 				3DC538351B39C684008689E0 /* SCEverydayDemo.m in Sources */,
 				3D4692861B2EE685009A852D /* SCSpecialController.m in Sources */,
+				3D70299F1B3AF34800D4B9E8 /* SCDetailFirstCell.m in Sources */,
 				3D5602C21B38FC4C007883B6 /* SCDetailViewController.m in Sources */,
 				3D4692581B2EE685009A852D /* UIView+Extension.m in Sources */,
 				3DD9247B1B350279003F3105 /* SCSpecialItem.m in Sources */,
 				3D46925C1B2EE685009A852D /* AFHTTPSessionManager.m in Sources */,
+				3D7029A11B3AF34800D4B9E8 /* SCFourthCell.m in Sources */,
 				3D46925D1B2EE685009A852D /* AFNetworkReachabilityManager.m in Sources */,
 				3D61D0AE1B2FD9A70014ED51 /* main.m in Sources */,
 				3D46926B1B2EE685009A852D /* MJRefreshGifHeader.m in Sources */,
@@ -1110,6 +1156,7 @@
 				3D4692731B2EE685009A852D /* NSData+ImageContentType.m in Sources */,
 				3D46926A1B2EE685009A852D /* MJRefreshGifFooter.m in Sources */,
 				3D88C7751B3023970073A6EA /* SCLoginViewController.m in Sources */,
+				3D7029A31B3AF34800D4B9E8 /* SCSecondCell.m in Sources */,
 				3D46927B1B2EE685009A852D /* UIButton+WebCache.m in Sources */,
 				3D4692611B2EE685009A852D /* AFURLResponseSerialization.m in Sources */,
 				3D61D0A81B2FD1230014ED51 /* SCNewfeatureController.m in Sources */,
@@ -1117,6 +1164,7 @@
 				3DC5382A1B39C51A008689E0 /* SCDetailDemo.m in Sources */,
 				3D5F284D1B3105690025AC85 /* NSObject+MJProperty.m in Sources */,
 				3D6E177C1B3305C300663AE8 /* SCNewDemoItem.m in Sources */,
+				3D7029A51B3AF34800D4B9E8 /* SCThirdCell.m in Sources */,
 				3D46926D1B2EE685009A852D /* MJRefreshLegendFooter.m in Sources */,
 				3D4692701B2EE685009A852D /* UIScrollView+MJRefresh.m in Sources */,
 				3D4692691B2EE685009A852D /* MJRefreshFooter.m in Sources */,

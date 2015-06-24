@@ -17,4 +17,7 @@
 #define SCOptionH [UIScreen mainScreen].bounds.size.height * 0.08
 #define SCNaviBar 64
 
-
+// 详情里的cell编号
+#define SCDetailFirstCellNumber 0
+#define SCDetailSecondCellNumber 1
+#define SCDetailThirdCellNumber 2

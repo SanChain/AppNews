@@ -95,7 +95,7 @@
                 <outlet property="likes" destination="sEd-5a-jEF" id="mo9-ib-B6A"/>
                 <outlet property="title" destination="sHu-Ro-IoL" id="Ch4-Z0-m05"/>
             </connections>
-            <point key="canvasLocation" x="394.5" y="471.5"/>
+            <point key="canvasLocation" x="327.5" y="436.5"/>
         </tableViewCell>
     </objects>
     <resources>

@@ -18,9 +18,15 @@
 #import "SCDetailLikesData.h"
 #import "SCDetailCommentsData.h"
 #import "MBProgressHUD+MJ.h"
+#import "SCDetailFirstCell.h"
+#import "SCSecondCell.h"
+#import "SCThirdCell.h"
+#import "SCFourthCell.h"
+#import "UITableView+FDTemplateLayoutCell.h"
 
 
-@interface SCDetailViewController ()<UIWebViewDelegate>
+@interface SCDetailViewController ()<UIWebViewDelegate, UITableViewDataSource, UITableViewDelegate>
+
 /** dem模型（包括下面三个嵌套模型）*/
 @property (nonatomic, strong) SCDetailDemo *detailDemo;
 /** demo作者模型 */
@@ -30,7 +36,13 @@
 /** 评论者模型数组 */
 @property (nonatomic, strong) NSMutableArray *commentsModelArray;
 
+@property (nonatomic, strong) UITableView *tableView;
+
+@property (nonatomic, strong) UIWebView *webView;
+
 @end
+
+static NSString *ID = @"cell";
 
 @implementation SCDetailViewController
 - (NSMutableArray *)likesModelArrayM
@@ -61,6 +73,30 @@
     [self.tabBarController.tabBar setHidden:NO];
 }
 
+- (UITableView *)tableView
+{
+    if (!_tableView) {
+        _tableView = [[UITableView alloc] init];
+        _tableView.dataSource = self;
+        _tableView.delegate = self;
+        _tableView.frame = self.view.bounds;
+        _tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
+    }
+    return _tableView;
+}
+
+- (UIWebView *)webView
+{
+    if (!_webView) {
+        _webView = [[UIWebView alloc] init];
+        _webView.frame = self.view.bounds;
+        _webView.scrollView.contentInset = UIEdgeInsetsMake(SCNaviBar, 0, -SCNavigationBarH, 0);
+        [_webView setScalesPageToFit:YES];
+        _webView.delegate = self;
+        _webView.userInteractionEnabled = YES;
+    }
+    return _webView;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -74,6 +110,10 @@
     
     // 加载详情 网络数据
     [self loadDetailData];
+    
+    // 自动加载详情页面
+    [self clickDetailBtn];
+    
     
 }
 
@@ -105,11 +145,11 @@
         }
 //        NSLog(@"-----commentsModelArray:%zd", self.commentsModelArray.count);
 
+        [self.tableView reloadData];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"请求失败");
     }];
 }
-
 
 
 #pragma mark 监听titleView点击
@@ -131,26 +171,100 @@
 #pragma mark 详情页面
 - (void)clickDetailBtn
 {
-    NSLog(@"clickDetailBtn");
-    
+    [self.tableView removeFromSuperview]; // 内存优化
+    [self.view addSubview:self.tableView];
+//    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
+
+// 详情页面tableViewDataSource
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 5;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = nil;
+    
+    switch (indexPath.row) {
+        case SCDetailFirstCellNumber:
+        {
+            // 第一行cell
+            [self.tableView registerNib:[UINib nibWithNibName:@"SCDetailFirstCell" bundle:nil] forCellReuseIdentifier:ID];
+            SCDetailFirstCell *firstCell = [SCDetailFirstCell loadNewCellWithTableView:tableView];
+            firstCell.demoAuthor = self.demoAuthor;
+            cell = (UITableViewCell *)firstCell;
+            break;
+        }
+ 
+        case SCDetailSecondCellNumber:
+        {
+            // 第二行cell
+            [self.tableView registerNib:[UINib nibWithNibName:@"SCSecondCell" bundle:nil] forCellReuseIdentifier:ID];
+            cell = [SCSecondCell loadNewCellWithTableView:tableView];
+            break;
+        }
+            
+        case SCDetailThirdCellNumber:
+        {
+            // 第三行cell
+            [self.tableView registerNib:[UINib nibWithNibName:@"SCThirdCell" bundle:nil] forCellReuseIdentifier:ID];
+            cell = [SCThirdCell loadNewCellWithTableView:tableView];
+            break;
+        }
+    
+        default:
+        {
+            // 第三行后面的cell
+            [self.tableView registerNib:[UINib nibWithNibName:@"SCFourthCell" bundle:nil] forCellReuseIdentifier:ID];
+            cell = [SCFourthCell loadNewCellWithTableView:tableView];
+            break;
+        }
+    }
+  
+    return  cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    switch (indexPath.row) {
+        case SCDetailFirstCellNumber:
+        {
+            return 60;
+            break;
+        }
+  
+        case SCDetailSecondCellNumber:
+            return 30;
+            break;
+            
+        case SCDetailThirdCellNumber:
+            return 50;
+            break;
+            
+        default:
+            return 70;
+            break;
+    }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
 
 #pragma mark 加载demo网页
 - (void)clickWebBtn
 {
-    NSLog(@"clickWebBtn");
     [MBProgressHUD showMessage:@"加载中..."];
+    [self.webView removeFromSuperview]; // 内存优化
     
-    UIWebView *webView = [[UIWebView alloc] init];
-    webView.frame = self.view.bounds;
-    webView.scrollView.contentInset = UIEdgeInsetsMake(SCNaviBar, 0, -SCNavigationBarH, 0);
-
+    NSLog(@"----subviews:%zd", self.view.subviews.count);
+    
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:self.detailDemo.website]];
-    [webView loadRequest:request];
-    [webView setScalesPageToFit:YES];
-    webView.delegate = self;
-    webView.userInteractionEnabled = YES;
-    [self.view addSubview:webView];
+    [self.webView loadRequest:request];
+    [self.view addSubview:self.webView];
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView
