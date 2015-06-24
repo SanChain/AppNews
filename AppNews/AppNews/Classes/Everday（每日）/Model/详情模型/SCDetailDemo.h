@@ -30,6 +30,8 @@
 /** 净回复数量 */
 @property (nonatomic, strong) NSNumber *comments2;
 
+/*****************************以下嵌套模型*********************************/
+
 /** 发布demo的作者信息 */
 @property (nonatomic, strong) NSDictionary *author;
 /** 点赞者所有的数据 */

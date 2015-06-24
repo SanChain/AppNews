@@ -17,9 +17,12 @@
 #import "SCDetailDemoAuthor.h"
 #import "SCDetailLikesData.h"
 #import "SCDetailCommentsData.h"
+#import "MBProgressHUD+MJ.h"
 
 
-@interface SCDetailViewController ()
+@interface SCDetailViewController ()<UIWebViewDelegate>
+/** dem模型（包括下面三个嵌套模型）*/
+@property (nonatomic, strong) SCDetailDemo *detailDemo;
 /** demo作者模型 */
 @property (nonatomic, strong) SCDetailDemoAuthor *demoAuthor;
 /** 点赞者模型数组 */
@@ -43,6 +46,19 @@
         _commentsModelArray = [NSMutableArray array];
     }
     return _commentsModelArray;
+}
+
+// 显示\隐藏tabBar
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.tabBarController.tabBar setHidden:YES];
+    
+}
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [self.tabBarController.tabBar setHidden:NO];
 }
 
 
@@ -69,26 +85,26 @@
     NSString *url = [NSString stringWithFormat:@"http://www.demo8.com/api/product/%zd", self.demoID.integerValue];
     [mgr GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
 
-        // 字典 转 模型
+        // 字典 转 demo模型
         SCDetailDemo *detailDemo = [SCDetailDemo objectWithKeyValues:responseObject];
+        self.detailDemo = detailDemo;
         
         // demo作者模型
         SCDetailDemoAuthor *demoAuthor = [SCDetailDemoAuthor objectWithKeyValues:detailDemo.author];
         self.demoAuthor = demoAuthor;
-        
+
         // 装入点赞者模型数组
         for (SCDetailLikesData *likesData in detailDemo.likesData) {
             [self.likesModelArrayM addObject:likesData];
         }
-        NSLog(@"-----likesModelArrayM:%zd", self.likesModelArrayM.count);
+//        NSLog(@"-----likesModelArrayM:%zd", self.likesModelArrayM.count);
         
         // 装入评论者数组模型
         for (SCDetailCommentsData *commentsData in detailDemo.commentsData) {
             [self.commentsModelArray addObject:commentsData];
         }
-        NSLog(@"-----commentsModelArray:%zd", self.commentsModelArray.count);
+//        NSLog(@"-----commentsModelArray:%zd", self.commentsModelArray.count);
 
-        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"请求失败");
     }];
@@ -111,23 +127,43 @@
             break;
     }
 }
-// 详情
+
+#pragma mark 详情页面
 - (void)clickDetailBtn
 {
     NSLog(@"clickDetailBtn");
-
+    
 }
 
-// 网站
+#pragma mark 加载demo网页
 - (void)clickWebBtn
 {
-//    NSLog(@"clickWebBtn");
+    NSLog(@"clickWebBtn");
+    [MBProgressHUD showMessage:@"加载中..."];
+    
     UIWebView *webView = [[UIWebView alloc] init];
     webView.frame = self.view.bounds;
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.baidu.com"]];
+    webView.scrollView.contentInset = UIEdgeInsetsMake(SCNaviBar, 0, -SCNavigationBarH, 0);
+
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:self.detailDemo.website]];
     [webView loadRequest:request];
+    [webView setScalesPageToFit:YES];
+    webView.delegate = self;
+    webView.userInteractionEnabled = YES;
     [self.view addSubview:webView];
 }
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView
+{
+    webView.scrollView.contentInset = UIEdgeInsetsMake(SCNaviBar, 0, 0, 0);
+    [MBProgressHUD hideHUD];
+}
+
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
+{
+    [MBProgressHUD hideHUD];
+}
+
 
 #pragma mark 集成分享
 - (void)share

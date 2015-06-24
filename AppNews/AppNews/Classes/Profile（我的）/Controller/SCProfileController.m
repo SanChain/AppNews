@@ -104,8 +104,10 @@ static NSInteger page = 1;
     params[@"pagesize"] = @10;
     
     if (self.likesDemos.count > 0) {
+        [self.likesDemos removeAllObjects];
+        [MBProgressHUD showMessage:@"加载中..."];
         [refresh endRefreshing];
-        return;
+//        return;
     } else {
         [MBProgressHUD showMessage:@"加载中..."];
     }

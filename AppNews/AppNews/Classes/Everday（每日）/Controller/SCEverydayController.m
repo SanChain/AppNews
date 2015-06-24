@@ -56,8 +56,11 @@ static NSString *ID = @"cell";
 }
 
 
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+
     // 去除cell的分隔线
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
@@ -69,6 +72,8 @@ static NSString *ID = @"cell";
     
     // 3. 上拉刷新加载旧数据
     [self upRefreshOldData];
+    
+    
 }
 
 #pragma mark - 自动刷新加载数据
@@ -232,7 +237,7 @@ static NSString *ID = @"cell";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
+        
     // 取出当前cell显示的demo id
     NSNumber *ID = [self.frameArrayM[indexPath.row] demoItem].ID;
 

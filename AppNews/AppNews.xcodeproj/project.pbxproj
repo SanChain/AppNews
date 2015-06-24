@@ -933,14 +933,14 @@
 		3DC5381E1B39C51A008689E0 /* 详情模型 */ = {
 			isa = PBXGroup;
 			children = (
-				3DC5381F1B39C51A008689E0 /* SCDetailCommentsData.h */,
-				3DC538201B39C51A008689E0 /* SCDetailCommentsData.m */,
 				3DC538211B39C51A008689E0 /* SCDetailDemo.h */,
 				3DC538221B39C51A008689E0 /* SCDetailDemo.m */,
 				3DC538231B39C51A008689E0 /* SCDetailDemoAuthor.h */,
 				3DC538241B39C51A008689E0 /* SCDetailDemoAuthor.m */,
 				3DC538251B39C51A008689E0 /* SCDetailLikesData.h */,
 				3DC538261B39C51A008689E0 /* SCDetailLikesData.m */,
+				3DC5381F1B39C51A008689E0 /* SCDetailCommentsData.h */,
+				3DC538201B39C51A008689E0 /* SCDetailCommentsData.m */,
 				3DC538271B39C51A008689E0 /* SCReplyCommentAuthor.h */,
 				3DC538281B39C51A008689E0 /* SCReplyCommentAuthor.m */,
 			);
