@@ -11,4 +11,5 @@
 @interface SCDetailViewController : UIViewController
 /** demoID */
 @property (nonatomic, strong) NSNumber *demoID;
+
 @end

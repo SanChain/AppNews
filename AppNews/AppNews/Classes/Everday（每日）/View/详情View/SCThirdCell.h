@@ -7,11 +7,22 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SCDetailLikesData.h"
+
+#define SCCellMargin 10
+#define SCIconMargin 5
 
 @interface SCThirdCell : UITableViewCell
-// 加载xib
-+ (instancetype)loadFirstCell;
 
 // 实例化可重用的cell
-+ (instancetype)loadNewCellWithTableView:(UITableView *)tableView;
++ (SCThirdCell *)loadNewCellWithTableView:(UITableView *)tableView;
+
+// cell的高度
+@property (nonatomic, assign) CGFloat cellHeight;
+
+@property (nonatomic, strong) SCDetailLikesData *likesData;
+@property (nonatomic, strong) NSMutableArray *likesArray;
+
+- (void)setupCellWithArray:(NSMutableArray *)likesArray;
+
 @end

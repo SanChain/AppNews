@@ -40,7 +40,7 @@
 {
     SCDetailFirstCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     if (cell == nil) {
-        cell = [SCDetailFirstCell loadFirstCell];
+        cell = [[SCDetailFirstCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
         
     }
     return cell;
@@ -51,7 +51,7 @@
 {
     _demoAuthor = demoAuthor;
 
-    [self.authorImgView sd_setImageWithURL:[NSURL URLWithString:demoAuthor.avatar]];
+    [self.authorImgView sd_setImageWithURL:[NSURL URLWithString:demoAuthor.avatar] placeholderImage:[UIImage imageNamed:@"tabbar_profile_selected"]];
     self.authorName.text = demoAuthor.nickname;
     self.authorDesc.text = demoAuthor.desc;
 }

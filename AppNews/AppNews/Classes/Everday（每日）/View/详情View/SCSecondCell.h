@@ -7,12 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SCDetailDemo.h"
 
 @interface SCSecondCell : UITableViewCell
 // 加载xib
 + (instancetype)loadFirstCell;
 
 // 实例化可重用的cell
-+ (instancetype)loadNewCellWithTableView:(UITableView *)tableView;
++ (SCSecondCell *)loadNewCellWithTableView:(UITableView *)tableView;
 
+/** detailDemo模型 */
+@property (nonatomic, strong) SCDetailDemo *detailDemo;
 @end

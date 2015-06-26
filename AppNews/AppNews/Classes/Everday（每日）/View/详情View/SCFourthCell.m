@@ -7,32 +7,52 @@
 //
 
 #import "SCFourthCell.h"
+#import "SCDetailCommentsData.h"
+#import "UIButton+WebCache.h"
+#import "SCDetailCommentsData.h"
 
+@interface SCFourthCell ()
+@property (weak, nonatomic) IBOutlet UIButton *icon;
+@property (weak, nonatomic) IBOutlet UILabel *title;
+@property (weak, nonatomic) IBOutlet UILabel *comment;
+
+@end
 @implementation SCFourthCell
 
 - (void)awakeFromNib {
-    // Initialization code
+
+    self.icon.layer.cornerRadius = 10;
+    self.icon.clipsToBounds = YES;
+    self.title.layer.cornerRadius = 3;
+    self.title.clipsToBounds = YES;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-    
-}
 
 // 加载xib
 + (instancetype)loadFirstCell
 {
-    return [[NSBundle mainBundle] loadNibNamed:@"SCSecondCell" owner:nil options:nil][0];
+    return [[NSBundle mainBundle] loadNibNamed:@"SCFourthCell" owner:nil options:nil][0];
 }
 
 // 实例化可重用的cell
 + (instancetype)loadNewCellWithTableView:(UITableView *)tableView
 {
-    SCFourthCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    SCFourthCell *cell = [tableView dequeueReusableCellWithIdentifier:@"fourthCell"];
     if (cell == nil) {
-        cell = [[SCFourthCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+        cell = [SCFourthCell loadFirstCell];
     }
     return cell;
+}
+
+
+- (void)setCommentsData:(SCDetailCommentsData *)commentsData
+{
+    _commentsData = commentsData;
+    
+    [self.icon sd_setImageWithURL:[NSURL URLWithString:commentsData.author_avatar] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"tabbar_profile_selected"]];
+    
+    self.title.text = commentsData.author_name;
+    self.comment.text = commentsData.message;
 }
 
 @end

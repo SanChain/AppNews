@@ -70,6 +70,7 @@
     /** demo标题 */
     UILabel *titleLab = [[UILabel alloc] init];
     [self.contentView addSubview:titleLab];
+    titleLab.lineBreakMode = NSLineBreakByTruncatingTail;
     self.titleLab = titleLab;
     
     /** 是否创业者 */
