@@ -16,6 +16,7 @@
 #import "SCFlowLayout.h"
 #import "Colours.h"
 #import "UIView+Extension.h"
+#import "SCDbTool.h"
 
 @interface SCSpecialController ()
 /** specialItem模型数组 */
@@ -79,19 +80,47 @@ static NSString * const reuseIdentifier = @"Cell";
 {
     [self.collectionView addLegendHeaderWithRefreshingTarget:self refreshingAction:@selector(loadNewItemData)];
     self.collectionView.header.updatedTimeHidden = YES;
-//    self.collectionView.header.hidden = YES;
     [self.collectionView.header beginRefreshing];
     
 }
 // 加载最新的item数据
 - (void)loadNewItemData
 {
+    // 读取缓存数据
+    NSArray *array = [SCDbTool querySpecialDemoData];
+    if (array.count) {
+        [self.items removeAllObjects];
+        page = 2;
+        
+        // 字典数组 转 模型数组
+        NSMutableArray *newItems = [NSMutableArray array];
+        newItems = [SCSpecialItem objectArrayWithKeyValuesArray:array];
+        // 把最新加载的数据添加到总数组最前面（因为不知道请求参数，所以无法筛选到最新的数据）
+        NSRange range = NSMakeRange(0, newItems.count);
+        NSIndexSet *set = [NSIndexSet indexSetWithIndexesInRange:range];
+        [self.items insertObjects:newItems atIndexes:set];
+        
+        NSLog(@"------读取缓存--------");
+        
+        // 刷新cell
+        [self.collectionView reloadData];
+        // 关闭刷新菊花
+        [self.collectionView.header endRefreshing];
+        // 隐藏刷新头部
+        self.collectionView.header.hidden = YES;
+        
+        return;
+    }
+    
     // http请求————item
     AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
-
+    
     NSString *url = [NSString stringWithFormat:@"http://www.demo8.com/api/topic?page=1"];
     [mgr GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         page++;
+        
+        // 写入数据库
+        [SCDbTool saveSpecialDemoData:responseObject];
         
         // 字典数组 转 模型数组
         NSMutableArray *newItems = [NSMutableArray array];
@@ -101,7 +130,7 @@ static NSString * const reuseIdentifier = @"Cell";
         NSIndexSet *set = [NSIndexSet indexSetWithIndexesInRange:range];
         [self.items insertObjects:newItems atIndexes:set];
         
-//        NSLog(@"------>>下拉----%zd", self.items.count);
+        NSLog(@"------>>下拉----%zd", self.items.count);
 
         // 刷新cell
         [self.collectionView reloadData];

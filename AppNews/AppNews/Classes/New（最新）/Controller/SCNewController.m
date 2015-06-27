@@ -13,6 +13,8 @@
 #import "AFNetworking.h"
 #import "SCNewCell.h"
 #import "UITableView+FDTemplateLayoutCell.h"
+#import "SCDbTool.h"
+
 
 @interface SCNewController ()
 /** demoItems模型数组 */
@@ -70,6 +72,28 @@ static NSString *ID = @"cell";
 {
     AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
     
+    // 查询缓存数据
+    NSArray *demoArray = [SCDbTool queryNewDemoData];
+    if (demoArray.count) {
+        [self.demoItems removeAllObjects];
+        page = 2;
+        
+        // 字典数组转demoItem模型数组
+        NSMutableArray *oldDemoItems = [NSMutableArray array];
+        oldDemoItems = [SCNewDemoItem objectArrayWithKeyValuesArray:demoArray];
+        
+        // 把新数据插入到数组最前面
+        NSRange range = NSMakeRange(0, oldDemoItems.count);
+        NSIndexSet *set = [NSIndexSet indexSetWithIndexesInRange:range];
+        [self.demoItems insertObjects:oldDemoItems atIndexes:set];
+
+        [self.tableView reloadData];
+        [self.tableView.header endRefreshing];
+        NSLog(@"-----------读取缓存----------------");
+    }
+
+    
+    
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"pagesize"] = @20;
     
@@ -77,12 +101,16 @@ static NSString *ID = @"cell";
         [self.tableView.header endRefreshing];
         return;
     }
-#warning todo 读取离线缓存_待做
+
     NSString *url = [NSString stringWithFormat:@"http://www.demo8.com/api/product?page=%zd&pagesize=20&sort=inputtime", page];
     
     [mgr GET:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         page++;
         
+        // 写入数据库
+        [SCDbTool saveNewDemoData:responseObject[@"items"]];
+        NSLog(@"-----------写入缓存----------------");
+
         // 字典数组转demoItem模型数组
         NSMutableArray *oldDemoItems = [NSMutableArray array];
         oldDemoItems = [SCNewDemoItem objectArrayWithKeyValuesArray:responseObject[@"items"]];
@@ -91,9 +119,8 @@ static NSString *ID = @"cell";
         NSRange range = NSMakeRange(0, oldDemoItems.count);
         NSIndexSet *set = [NSIndexSet indexSetWithIndexesInRange:range];
         [self.demoItems insertObjects:oldDemoItems atIndexes:set];
-#warning todo 写入离线缓存_待做
 
-//        NSLog(@"<--------下拉--------》%zd", self.demoItems.count);
+        
         
         [self.tableView reloadData];
         [self.tableView.header endRefreshing];

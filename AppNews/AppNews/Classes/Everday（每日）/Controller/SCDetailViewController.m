@@ -210,7 +210,7 @@ static NSString *ID = @"cell";
             
 //        case SCDetailThirdCellNumber:
 //        {
-#warning todo 会没做好这一行的cell，没办法加载 没用到xib的自定义cell
+#warning todo 没做好这一行的cell，没办法加载 没用到xib的自定义cell
 ////            // 第三行cell
 ////            SCThirdCell *thirdCell = [SCThirdCell loadNewCellWithTableView:tableView];
 ////            [self.tableView registerClass:[SCThirdCell class] forCellReuseIdentifier:@"thirdCell"];
@@ -274,9 +274,7 @@ static NSString *ID = @"cell";
 {
     [MBProgressHUD showMessage:@"加载中..."];
     [self.webView removeFromSuperview]; // 内存优化
-    
-    NSLog(@"----subviews:%zd", self.view.subviews.count);
-    
+        
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:self.detailDemo.website]];
     [self.webView loadRequest:request];
     [self.view addSubview:self.webView];

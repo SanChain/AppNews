@@ -16,6 +16,7 @@
 #import "SCEverydayDemoItem.h"
 #import "SCEverydayDemoFrame.h"
 #import "SCDetailViewController.h"
+#import "SCDbTool.h"
 
 
 @interface SCEverydayController ()
@@ -56,8 +57,6 @@ static NSString *ID = @"cell";
 }
 
 
-
-
 - (void)viewDidLoad {
     [super viewDidLoad];
 
@@ -72,7 +71,6 @@ static NSString *ID = @"cell";
     
     // 3. 上拉刷新加载旧数据
     [self upRefreshOldData];
-    
     
 }
 
@@ -95,7 +93,26 @@ static NSString *ID = @"cell";
 {
     AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
     
-    if (self.frameArrayM.count > 0) { // 设置允许上拉刷新一次
+    // 查询离线缓存的数据
+    NSArray *demoArray = [SCDbTool queryDemoData];
+    if (demoArray.count > 0) {
+        page++;
+        [self.frameArrayM removeAllObjects];
+        
+        // 字典转模型
+        NSArray *DemoItemArray = [SCEverydayDemoItem objectArrayWithKeyValuesArray:demoArray];
+        
+        // DemoFrame模型数组
+        for (SCEverydayDemoItem *demoItem in DemoItemArray) {
+            SCEverydayDemoFrame *demoF = [[SCEverydayDemoFrame alloc] init];
+            demoF.demoItem = demoItem;
+            [self.frameArrayM addObject:demoF];
+        }
+//        NSLog(@"------读取缓存数据---------");
+
+        // 更新表格
+        [self.tableView reloadData];
+        // 关闭刷新圈圈
         [self.tableView.header endRefreshing];
         return;
     }
@@ -104,6 +121,10 @@ static NSString *ID = @"cell";
 
     [mgr GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         page++;
+//        NSLog(@"------写入数据库---------");
+        
+        // 把数组写入SQLite数据库
+        [SCDbTool saveDemoData:responseObject[@"items"]];
         
         // 字典转模型
         SCEverydayDemo *everydayDemo = [SCEverydayDemo objectWithKeyValues:responseObject];
@@ -122,7 +143,8 @@ static NSString *ID = @"cell";
         [self.frameArrayM insertObjects: newFrameArrayM atIndexes:set];
 
 //        NSLog(@"<<----下拉刷新------->>%zd", self.frameArrayM.count);
-
+        
+        
         // 更新表格
         [self.tableView reloadData];
         // 结束刷新
