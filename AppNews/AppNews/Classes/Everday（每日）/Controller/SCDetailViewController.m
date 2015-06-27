@@ -121,6 +121,7 @@ static NSString *ID = @"cell";
 #pragma mark 加载详情 网络数据
 - (void)loadDetailData
 {
+    [MBProgressHUD showMessage:@"加载中..."];
     AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
     
     NSString *url = [NSString stringWithFormat:@"http://www.demo8.com/api/product/%zd", self.demoID.integerValue];
@@ -144,11 +145,15 @@ static NSString *ID = @"cell";
         for (SCDetailCommentsData *commentsData in detailDemo.commentsData) {
             [self.commentsModelArray addObject:commentsData];
         }
+        
+        [MBProgressHUD hideHUD];
 //        NSLog(@"-----commentsModelArray:%zd", self.commentsModelArray.count);
 
         [self.tableView reloadData];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"请求失败");
+        [MBProgressHUD hideHUD];
+
     }];
 }
 

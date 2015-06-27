@@ -127,6 +127,8 @@
 		3DD9247F1B350BF6003F3105 /* SCSpecialCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD9247D1B350BF6003F3105 /* SCSpecialCell.m */; };
 		3DD924801B350BF6003F3105 /* SCSpecialCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DD9247E1B350BF6003F3105 /* SCSpecialCell.xib */; };
 		3DD924891B3528C0003F3105 /* SCFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD924881B3528C0003F3105 /* SCFlowLayout.m */; };
+		3DDEAB421B3ECD8E00FF6154 /* SCProfileSettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDEAB401B3ECD8E00FF6154 /* SCProfileSettingController.m */; };
+		3DDEAB451B3ECE9300FF6154 /* SCProfileSetting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DDEAB441B3ECE9300FF6154 /* SCProfileSetting.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -370,6 +372,9 @@
 		3DD9247E1B350BF6003F3105 /* SCSpecialCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SCSpecialCell.xib; sourceTree = "<group>"; };
 		3DD924871B3528C0003F3105 /* SCFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCFlowLayout.h; sourceTree = "<group>"; };
 		3DD924881B3528C0003F3105 /* SCFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCFlowLayout.m; sourceTree = "<group>"; };
+		3DDEAB3F1B3ECD8E00FF6154 /* SCProfileSettingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCProfileSettingController.h; sourceTree = "<group>"; };
+		3DDEAB401B3ECD8E00FF6154 /* SCProfileSettingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCProfileSettingController.m; sourceTree = "<group>"; };
+		3DDEAB441B3ECE9300FF6154 /* SCProfileSetting.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SCProfileSetting.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -591,6 +596,9 @@
 			children = (
 				3D4691D81B2EE684009A852D /* SCProfileController.h */,
 				3D4691D91B2EE684009A852D /* SCProfileController.m */,
+				3DDEAB3F1B3ECD8E00FF6154 /* SCProfileSettingController.h */,
+				3DDEAB401B3ECD8E00FF6154 /* SCProfileSettingController.m */,
+				3DDEAB441B3ECE9300FF6154 /* SCProfileSetting.storyboard */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1135,6 +1143,7 @@
 				3D3F9F401B2BD43500687759 /* Images.xcassets in Resources */,
 				3D7290831B36D686005EAA30 /* SCIntroductionView.xib in Resources */,
 				3D72900A1B368067005EAA30 /* SCTableViewCell.xib in Resources */,
+				3DDEAB451B3ECE9300FF6154 /* SCProfileSetting.storyboard in Resources */,
 				3D4692881B2F357D009A852D /* ProfileInformation.plist in Resources */,
 				3D4692661B2EE685009A852D /* MJRefresh.bundle in Resources */,
 				3D6E17811B33256000663AE8 /* SCNewCell.xib in Resources */,
@@ -1213,6 +1222,7 @@
 				3D6E177C1B3305C300663AE8 /* SCNewDemoItem.m in Sources */,
 				3D7029A51B3AF34800D4B9E8 /* SCThirdCell.m in Sources */,
 				3D46926D1B2EE685009A852D /* MJRefreshLegendFooter.m in Sources */,
+				3DDEAB421B3ECD8E00FF6154 /* SCProfileSettingController.m in Sources */,
 				3D4692701B2EE685009A852D /* UIScrollView+MJRefresh.m in Sources */,
 				3D4692691B2EE685009A852D /* MJRefreshFooter.m in Sources */,
 				3D4692621B2EE685009A852D /* AFURLSessionManager.m in Sources */,
