@@ -32,9 +32,9 @@
 
 
 // 加载xib
-+ (instancetype)loadFirstCell
++ (instancetype)loadSecondCell
 {
-    return [[NSBundle mainBundle] loadNibNamed:@"SCSecondCell" owner:nil options:nil][0];
+    return [[NSBundle mainBundle] loadNibNamed:@"SCDetailFirstCell" owner:nil options:nil][1];
 }
 
 // 实例化可重用的cell
@@ -42,7 +42,8 @@
 {
     SCSecondCell *cell = [tableView dequeueReusableCellWithIdentifier:@"secondCell"];
     if (cell == nil) {
-        cell = [[SCSecondCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"secondCell"];
+        cell = [self loadSecondCell];
+        [tableView registerNib:[UINib nibWithNibName:@"SCDetailFirstCell" bundle:nil] forCellReuseIdentifier:@"secondCell"];
     }
     return cell;
 }

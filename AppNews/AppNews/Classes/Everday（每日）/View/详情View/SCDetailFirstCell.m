@@ -40,8 +40,8 @@
 {
     SCDetailFirstCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     if (cell == nil) {
-        cell = [[SCDetailFirstCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
-        
+        cell = [self loadFirstCell];
+        [tableView registerNib:[UINib nibWithNibName:@"SCDetailFirstCell" bundle:nil] forCellReuseIdentifier:@"cell"];
     }
     return cell;
 }

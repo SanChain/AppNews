@@ -29,17 +29,19 @@
 
 
 // 加载xib
-+ (instancetype)loadFirstCell
++ (instancetype)loadFourthCell
 {
-    return [[NSBundle mainBundle] loadNibNamed:@"SCFourthCell" owner:nil options:nil][0];
+    return [[NSBundle mainBundle] loadNibNamed:@"SCDetailFirstCell" owner:nil options:nil][2];
 }
 
 // 实例化可重用的cell
 + (instancetype)loadNewCellWithTableView:(UITableView *)tableView
 {
     SCFourthCell *cell = [tableView dequeueReusableCellWithIdentifier:@"fourthCell"];
+    [tableView registerNib:[UINib nibWithNibName:@"SCDetailFirstCell" bundle:nil] forCellReuseIdentifier:@"fourthCell"];
     if (cell == nil) {
-        cell = [SCFourthCell loadFirstCell];
+        cell = [self loadFourthCell];
+        
     }
     return cell;
 }

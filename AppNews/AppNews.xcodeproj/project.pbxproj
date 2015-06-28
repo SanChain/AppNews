@@ -85,9 +85,7 @@
 		3D70299F1B3AF34800D4B9E8 /* SCDetailFirstCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7029941B3AF34800D4B9E8 /* SCDetailFirstCell.m */; };
 		3D7029A01B3AF34800D4B9E8 /* SCDetailFirstCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D7029951B3AF34800D4B9E8 /* SCDetailFirstCell.xib */; };
 		3D7029A11B3AF34800D4B9E8 /* SCFourthCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7029971B3AF34800D4B9E8 /* SCFourthCell.m */; };
-		3D7029A21B3AF34800D4B9E8 /* SCFourthCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D7029981B3AF34800D4B9E8 /* SCFourthCell.xib */; };
 		3D7029A31B3AF34800D4B9E8 /* SCSecondCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D70299A1B3AF34800D4B9E8 /* SCSecondCell.m */; };
-		3D7029A41B3AF34800D4B9E8 /* SCSecondCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D70299B1B3AF34800D4B9E8 /* SCSecondCell.xib */; };
 		3D7029A51B3AF34800D4B9E8 /* SCThirdCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D70299D1B3AF34800D4B9E8 /* SCThirdCell.m */; };
 		3D728FF71B36476F005EAA30 /* SCProfileIntroduction.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D728FF61B36476F005EAA30 /* SCProfileIntroduction.m */; };
 		3D7290091B368067005EAA30 /* SCTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7290071B368067005EAA30 /* SCTableViewCell.m */; };
@@ -106,7 +104,6 @@
 		3D88C78D1B306C080073A6EA /* UIWindow+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D88C78C1B306C080073A6EA /* UIWindow+Extension.m */; };
 		3D88C7911B3070030073A6EA /* SCAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D88C7901B3070030073A6EA /* SCAccount.m */; };
 		3D88C7941B3077750073A6EA /* SCAccountTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D88C7931B3077750073A6EA /* SCAccountTool.m */; };
-		3D9DDA641B3C05900003AE9C /* SCThirdCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D9DDA631B3C058F0003AE9C /* SCThirdCell.xib */; };
 		3DA544EA1B3E3C6D0010A897 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA544E01B3E3C6D0010A897 /* FMDatabase.m */; };
 		3DA544EB1B3E3C6D0010A897 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA544E21B3E3C6D0010A897 /* FMDatabaseAdditions.m */; };
 		3DA544EC1B3E3C6D0010A897 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA544E41B3E3C6D0010A897 /* FMDatabasePool.m */; };
@@ -297,10 +294,8 @@
 		3D7029951B3AF34800D4B9E8 /* SCDetailFirstCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SCDetailFirstCell.xib; sourceTree = "<group>"; };
 		3D7029961B3AF34800D4B9E8 /* SCFourthCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCFourthCell.h; sourceTree = "<group>"; };
 		3D7029971B3AF34800D4B9E8 /* SCFourthCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCFourthCell.m; sourceTree = "<group>"; };
-		3D7029981B3AF34800D4B9E8 /* SCFourthCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SCFourthCell.xib; sourceTree = "<group>"; };
 		3D7029991B3AF34800D4B9E8 /* SCSecondCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCSecondCell.h; sourceTree = "<group>"; };
 		3D70299A1B3AF34800D4B9E8 /* SCSecondCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCSecondCell.m; sourceTree = "<group>"; };
-		3D70299B1B3AF34800D4B9E8 /* SCSecondCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SCSecondCell.xib; sourceTree = "<group>"; };
 		3D70299C1B3AF34800D4B9E8 /* SCThirdCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCThirdCell.h; sourceTree = "<group>"; };
 		3D70299D1B3AF34800D4B9E8 /* SCThirdCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCThirdCell.m; sourceTree = "<group>"; };
 		3D728FF51B36476F005EAA30 /* SCProfileIntroduction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCProfileIntroduction.h; sourceTree = "<group>"; };
@@ -332,7 +327,6 @@
 		3D88C7901B3070030073A6EA /* SCAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCAccount.m; sourceTree = "<group>"; };
 		3D88C7921B3077750073A6EA /* SCAccountTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCAccountTool.h; sourceTree = "<group>"; };
 		3D88C7931B3077750073A6EA /* SCAccountTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCAccountTool.m; sourceTree = "<group>"; };
-		3D9DDA631B3C058F0003AE9C /* SCThirdCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SCThirdCell.xib; sourceTree = "<group>"; };
 		3DA544DF1B3E3C6D0010A897 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
 		3DA544E01B3E3C6D0010A897 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
 		3DA544E11B3E3C6D0010A897 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
@@ -933,13 +927,10 @@
 				3D7029951B3AF34800D4B9E8 /* SCDetailFirstCell.xib */,
 				3D7029991B3AF34800D4B9E8 /* SCSecondCell.h */,
 				3D70299A1B3AF34800D4B9E8 /* SCSecondCell.m */,
-				3D70299B1B3AF34800D4B9E8 /* SCSecondCell.xib */,
 				3D70299C1B3AF34800D4B9E8 /* SCThirdCell.h */,
 				3D70299D1B3AF34800D4B9E8 /* SCThirdCell.m */,
-				3D9DDA631B3C058F0003AE9C /* SCThirdCell.xib */,
 				3D7029961B3AF34800D4B9E8 /* SCFourthCell.h */,
 				3D7029971B3AF34800D4B9E8 /* SCFourthCell.m */,
-				3D7029981B3AF34800D4B9E8 /* SCFourthCell.xib */,
 			);
 			path = "详情View";
 			sourceTree = "<group>";
@@ -1134,10 +1125,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D3F9F431B2BD43500687759 /* LaunchScreen.xib in Resources */,
-				3D9DDA641B3C05900003AE9C /* SCThirdCell.xib in Resources */,
 				3D4692831B2EE685009A852D /* SVProgressHUD.bundle in Resources */,
 				3DD924801B350BF6003F3105 /* SCSpecialCell.xib in Resources */,
-				3D7029A41B3AF34800D4B9E8 /* SCSecondCell.xib in Resources */,
 				3D88C7761B3023970073A6EA /* SCLoginViewController.xib in Resources */,
 				3D7290881B36D92C005EAA30 /* SCOptionMenuView.xib in Resources */,
 				3D3F9F401B2BD43500687759 /* Images.xcassets in Resources */,
@@ -1147,7 +1136,6 @@
 				3D4692881B2F357D009A852D /* ProfileInformation.plist in Resources */,
 				3D4692661B2EE685009A852D /* MJRefresh.bundle in Resources */,
 				3D6E17811B33256000663AE8 /* SCNewCell.xib in Resources */,
-				3D7029A21B3AF34800D4B9E8 /* SCFourthCell.xib in Resources */,
 				3D88C7861B30581F0073A6EA /* MBProgressHUD.bundle in Resources */,
 				3D7029A01B3AF34800D4B9E8 /* SCDetailFirstCell.xib in Resources */,
 			);

@@ -185,7 +185,12 @@ static NSString *ID = @"cell";
 // 详情页面tableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 2 + self.commentsModelArray.count;
+    if (self.likesModelArrayM.count) {
+        return 3 + self.commentsModelArray.count;
+    } else {
+        return 2 + self.commentsModelArray.count;
+    }
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -196,7 +201,6 @@ static NSString *ID = @"cell";
         case SCDetailFirstCellNumber:
         {
             // 第一行cell
-            [self.tableView registerNib:[UINib nibWithNibName:@"SCDetailFirstCell" bundle:nil] forCellReuseIdentifier:ID];
             SCDetailFirstCell *firstCell = [SCDetailFirstCell loadNewCellWithTableView:tableView];
             firstCell.demoAuthor = self.demoAuthor;
             cell = (UITableViewCell *)firstCell;
@@ -206,30 +210,26 @@ static NSString *ID = @"cell";
         case SCDetailSecondCellNumber:
         {
             // 第二行cell
-            [self.tableView registerNib:[UINib nibWithNibName:@"SCSecondCell" bundle:nil] forCellReuseIdentifier:@"secondCell"];
             SCSecondCell *secondCell = [SCSecondCell loadNewCellWithTableView:tableView];
             secondCell.detailDemo = self.detailDemo;
             cell = (UITableViewCell *)secondCell;
             break;
         }
             
-//        case SCDetailThirdCellNumber:
-//        {
-#warning todo 没做好这一行的cell，没办法加载 没用到xib的自定义cell
-////            // 第三行cell
-////            SCThirdCell *thirdCell = [SCThirdCell loadNewCellWithTableView:tableView];
-////            [self.tableView registerClass:[SCThirdCell class] forCellReuseIdentifier:@"thirdCell"];
-////            [thirdCell setupCellWithArray:self.likesModelArrayM];
-////            cell = (UITableViewCell *)thirdCell;
-////            break;
-//        }
+        case SCDetailThirdCellNumber:
+        {
+            // 第三行cell
+            SCThirdCell *thirdCell = [SCThirdCell loadNewCellWithTableView:tableView];
+            [thirdCell setupCellWithArray:self.likesModelArrayM];
+            cell = (UITableViewCell *)thirdCell;
+            break;
+        }
     
         default:
         {
             // 第三行后面的cell
-            [self.tableView registerNib:[UINib nibWithNibName:@"SCFourthCell" bundle:nil] forCellReuseIdentifier:@"fourthCell"];
             SCFourthCell *fourthCell = [SCFourthCell loadNewCellWithTableView:tableView];
-            fourthCell.commentsData = self.commentsModelArray[indexPath.row - 2];
+            fourthCell.commentsData = self.commentsModelArray[indexPath.row - 3];
             cell = (UITableViewCell *)fourthCell;
             break;
         }
@@ -246,20 +246,14 @@ static NSString *ID = @"cell";
             break;
   
         case SCDetailSecondCellNumber:
-        {
-            [tableView registerNib:[UINib nibWithNibName:@"SCSecondCell" bundle:nil] forCellReuseIdentifier:@"secondCell"];
             
-            return [tableView fd_heightForCellWithIdentifier:@"secondCell" configuration:^(id cell) {
-                SCSecondCell *secondCell = (SCSecondCell *)cell;
-                secondCell.detailDemo = self.detailDemo;
-            }];
+            return 100;
             break;
-        }
             
             
-//        case SCDetailThirdCellNumber:
-//            return 100;
-//            break;
+        case SCDetailThirdCellNumber:
+            return 100;
+            break;
             
         default:
             return 90;
@@ -267,6 +261,8 @@ static NSString *ID = @"cell";
             
     }
 }
+
+
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
