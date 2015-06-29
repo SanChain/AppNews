@@ -21,7 +21,7 @@
 + (SCThirdCell *)loadNewCellWithTableView:(UITableView *)tableView
 {
     SCThirdCell *cell = [tableView dequeueReusableCellWithIdentifier:@"thirdCell"];
-//    [tableView registerClass:[SCThirdCell class] forCellReuseIdentifier:@"thirdCell"];
+    [tableView registerClass:[SCThirdCell class] forCellReuseIdentifier:@"thirdCell"];
     if (cell == nil) {
         cell = [[self alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"thirdCell"];
         cell.backgroundColor = [UIColor wheatColor];

@@ -13,6 +13,7 @@
 #import "UIWindow+Extension.h"
 #import "SCAccount.h"
 #import "SCAccountTool.h"
+#import "SDWebImageManager.h"
 
 @interface AppDelegate ()
 
@@ -56,6 +57,17 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+}
+
+// 收到内存警告
+- (void)applicationDidReceiveMemoryWarning:(UIApplication *)application
+{
+    NSLog(@"内存警告");
+    SDWebImageManager *mgr = [SDWebImageManager sharedManager];
+    // 取消所有下载
+    [mgr cancelAll];
+    // 清除内存中所有图片
+    [mgr.imageCache clearMemory];
 }
 
 @end

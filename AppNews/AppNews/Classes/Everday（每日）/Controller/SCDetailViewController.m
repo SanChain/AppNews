@@ -22,7 +22,6 @@
 #import "SCSecondCell.h"
 #import "SCThirdCell.h"
 #import "SCFourthCell.h"
-#import "UITableView+FDTemplateLayoutCell.h"
 
 
 @interface SCDetailViewController ()<UIWebViewDelegate, UITableViewDataSource, UITableViewDelegate>
@@ -123,6 +122,7 @@ static NSString *ID = @"cell";
 {
     [MBProgressHUD showMessage:@"加载中..."];
     AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
+//    mgr.requestSerializer.timeoutInterval = 10.0;
     
     NSString *url = [NSString stringWithFormat:@"http://www.demo8.com/api/product/%zd", self.demoID.integerValue];
     [mgr GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -153,7 +153,6 @@ static NSString *ID = @"cell";
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"请求失败");
         [MBProgressHUD hideHUD];
-
     }];
 }
 
@@ -275,9 +274,12 @@ static NSString *ID = @"cell";
 {
     [MBProgressHUD showMessage:@"加载中..."];
     [self.webView removeFromSuperview]; // 内存优化
-        
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:self.detailDemo.website]];
+    
+    // 设置网络请求超时时间为7秒
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:self.detailDemo.website] cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:7.0];
+    
     [self.webView loadRequest:request];
+    
     [self.view addSubview:self.webView];
 }
 

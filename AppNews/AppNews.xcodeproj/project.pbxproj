@@ -119,6 +119,8 @@
 		3DC538351B39C684008689E0 /* SCEverydayDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC538301B39C684008689E0 /* SCEverydayDemo.m */; };
 		3DC538361B39C684008689E0 /* SCEverydayDemoFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC538321B39C684008689E0 /* SCEverydayDemoFrame.m */; };
 		3DC538371B39C684008689E0 /* SCEverydayDemoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC538341B39C684008689E0 /* SCEverydayDemoItem.m */; };
+		3DD515AC1B41842800DA84B6 /* SCNetworkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD515AB1B41842800DA84B6 /* SCNetworkTool.m */; };
+		3DD515B01B4184B100DA84B6 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD515AF1B4184B100DA84B6 /* Reachability.m */; };
 		3DD924781B350204003F3105 /* SCWorkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD924771B350204003F3105 /* SCWorkTool.m */; };
 		3DD9247B1B350279003F3105 /* SCSpecialItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD9247A1B350279003F3105 /* SCSpecialItem.m */; };
 		3DD9247F1B350BF6003F3105 /* SCSpecialCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD9247D1B350BF6003F3105 /* SCSpecialCell.m */; };
@@ -357,6 +359,10 @@
 		3DC538321B39C684008689E0 /* SCEverydayDemoFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCEverydayDemoFrame.m; sourceTree = "<group>"; };
 		3DC538331B39C684008689E0 /* SCEverydayDemoItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCEverydayDemoItem.h; sourceTree = "<group>"; };
 		3DC538341B39C684008689E0 /* SCEverydayDemoItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCEverydayDemoItem.m; sourceTree = "<group>"; };
+		3DD515AA1B41842800DA84B6 /* SCNetworkTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCNetworkTool.h; sourceTree = "<group>"; };
+		3DD515AB1B41842800DA84B6 /* SCNetworkTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCNetworkTool.m; sourceTree = "<group>"; };
+		3DD515AE1B4184B100DA84B6 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		3DD515AF1B4184B100DA84B6 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		3DD924761B350204003F3105 /* SCWorkTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCWorkTool.h; sourceTree = "<group>"; };
 		3DD924771B350204003F3105 /* SCWorkTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCWorkTool.m; sourceTree = "<group>"; };
 		3DD924791B350279003F3105 /* SCSpecialItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCSpecialItem.h; sourceTree = "<group>"; };
@@ -655,6 +661,7 @@
 		3D4691E61B2EE684009A852D /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				3DD515AD1B4184B100DA84B6 /* Reachability */,
 				3DA544DE1B3E3C6D0010A897 /* fmdb */,
 				3D8092321B345DF800360A66 /* Classes */,
 				3D5F28351B3105690025AC85 /* MJExtension */,
@@ -1009,6 +1016,8 @@
 			children = (
 				3DA544F31B3E3FF70010A897 /* SCDbTool.h */,
 				3DA544F41B3E3FF70010A897 /* SCDbTool.m */,
+				3DD515AA1B41842800DA84B6 /* SCNetworkTool.h */,
+				3DD515AB1B41842800DA84B6 /* SCNetworkTool.m */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -1041,6 +1050,15 @@
 				3DC538341B39C684008689E0 /* SCEverydayDemoItem.m */,
 			);
 			path = "每日模块模型";
+			sourceTree = "<group>";
+		};
+		3DD515AD1B4184B100DA84B6 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				3DD515AE1B4184B100DA84B6 /* Reachability.h */,
+				3DD515AF1B4184B100DA84B6 /* Reachability.m */,
+			);
+			path = Reachability;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1243,11 +1261,13 @@
 				3D46925A1B2EE685009A852D /* AFHTTPRequestOperation.m in Sources */,
 				3D46925F1B2EE685009A852D /* AFURLConnectionOperation.m in Sources */,
 				3D4692601B2EE685009A852D /* AFURLRequestSerialization.m in Sources */,
+				3DD515AC1B41842800DA84B6 /* SCNetworkTool.m in Sources */,
 				3DA544ED1B3E3C6D0010A897 /* FMDatabaseQueue.m in Sources */,
 				3D4692811B2EE685009A852D /* UIView+WebCacheOperation.m in Sources */,
 				3D5F284E1B3105690025AC85 /* NSString+Extension.m in Sources */,
 				3D46926E1B2EE685009A852D /* MJRefreshLegendHeader.m in Sources */,
 				3D5F282B1B30FDC00025AC85 /* SCEverydayCell.m in Sources */,
+				3DD515B01B4184B100DA84B6 /* Reachability.m in Sources */,
 				3DC538371B39C684008689E0 /* SCEverydayDemoItem.m in Sources */,
 				3DC5382D1B39C51A008689E0 /* SCReplyCommentAuthor.m in Sources */,
 				3D4692561B2EE685009A852D /* Foundation+Log.m in Sources */,

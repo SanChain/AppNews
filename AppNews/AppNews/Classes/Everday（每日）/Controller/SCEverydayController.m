@@ -17,14 +17,17 @@
 #import "SCEverydayDemoFrame.h"
 #import "SCDetailViewController.h"
 #import "SCDbTool.h"
+#import "SCNetworkTool.h"
+#import "UIView+Extension.h"
 
-
-@interface SCEverydayController ()
+@interface SCEverydayController () <UIAlertViewDelegate>
 /** 此刻日期 */
 @property (nonatomic, copy) NSMutableString *stringM;
 /** 装DemoFrame模型的数组 */
 @property (nonatomic, strong) NSMutableArray *frameArrayM;
-
+/** 网络连接状态对象 */
+@property (nonatomic, strong) Reachability *reachability;
+@property (nonatomic, weak) UIView *hudView;
 @end
 
 /** 上拉刷新时全局变量保存页码 */
@@ -57,9 +60,13 @@ static NSString *ID = @"cell";
 }
 
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    // 强制检测网络状态
+    [self checkNetworkState];
+    
     // 去除cell的分隔线
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
@@ -67,11 +74,84 @@ static NSString *ID = @"cell";
     [self initTwoBarButtonItem];
     
     // 2. 自动刷新加载数据
-    [self autoRefresh];
+//    [self autoRefresh];
     
     // 3. 上拉刷新加载旧数据
     [self upRefreshOldData];
+}
+
+#pragma mark 自动检测网络状态
+- (void)viewWillAppear:(BOOL)animated
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(checkNetworkState) name:kReachabilityChangedNotification object:nil];
+    self.reachability = [Reachability reachabilityForInternetConnection];
+    [self.reachability startNotifier];
+}
+
+// 通知中心的网络状态监听
+- (void)checkNetworkState
+{
+    NSLog(@"网络发生改变了");
     
+    if ([SCNetworkTool isEnableWIFI]) {
+        NSLog(@"wifi网络");
+        // 自动刷新加载数据
+        [self autoRefresh];
+        
+    } else if ([SCNetworkTool isEnable3G]) {
+        NSLog(@"蜂窝网络");
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"打开无线局域网提高浏览速度，节省流量" delegate:self cancelButtonTitle:@"好" otherButtonTitles:@"流量..多大点事儿啊", @"设置WIFI" ,nil];
+        [alertView show];
+        [self loadOfflineCachesData];
+        
+    } else {
+        NSLog(@"没有网络");
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"当前没有网络，为了不影响您的使用，请检查您的网络设置" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+        [alertView show];
+        [self loadOfflineCachesData];
+    }
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0) { // 第三个按钮：好
+        NSLog(@"-----好");
+    } else if (buttonIndex == 1) { // 第一个按钮：流量..多大点事儿啊
+        NSLog(@"-----流量..多大点事儿啊");
+        
+    } else if (buttonIndex == 2) { // 第二个按钮：设置WIFI
+        NSLog(@"-----设置WIFI");
+        // 不能跳转到手机的设置界面，只能用图片的形式向用户展示如何设置wifi
+        // 蒙版
+        UIView *hudView = [[UIView alloc] init];
+        hudView.frame = self.view.bounds;
+        hudView.backgroundColor = [UIColor blackColor];
+        hudView.alpha = 0.8;
+        // 展示图片按钮
+        UIButton *btn = [[UIButton alloc] init];
+        [btn setImage:[UIImage imageNamed:@"setting"] forState:UIControlStateNormal];
+        btn.centerX = hudView.centerX;
+        btn.centerY = hudView.centerY;
+        btn.width = 230;
+        btn.height = 360;
+        [btn addTarget:self action:@selector(clickSettingBtn) forControlEvents:UIControlEventTouchUpInside];
+        [hudView addSubview:btn];
+        [self.view addSubview:hudView];
+        self.hudView = hudView;
+        
+    }
+}
+
+- (void)clickSettingBtn
+{
+    [self.hudView removeFromSuperview];
+}
+
+// 释放通知中心的观察者
+- (void)dealloc
+{
+    [self.reachability stopNotifier];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 #pragma mark - 自动刷新加载数据
@@ -88,12 +168,9 @@ static NSString *ID = @"cell";
 
 }
 
-// 下拉加载demo新数据
-- (void)loadDemoNewData
+// 加载离线缓存数据
+- (BOOL)loadOfflineCachesData
 {
-    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
-    
-    // 查询离线缓存的数据
     NSArray *demoArray = [SCDbTool queryDemoData];
     if (demoArray.count > 0) {
         page++;
@@ -108,12 +185,26 @@ static NSString *ID = @"cell";
             demoF.demoItem = demoItem;
             [self.frameArrayM addObject:demoF];
         }
-//        NSLog(@"------读取缓存数据---------");
-
+        //        NSLog(@"------读取缓存数据---------");
+        
         // 更新表格
         [self.tableView reloadData];
         // 关闭刷新圈圈
         [self.tableView.header endRefreshing];
+        return YES;
+    } else {
+        return NO;
+    }
+}
+
+// 下拉加载demo新数据
+- (void)loadDemoNewData
+{
+    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
+
+    // 加载离线缓存的数据
+    BOOL isLoadSuccess = [self loadOfflineCachesData];
+    if (isLoadSuccess) { // 成功加载了缓存数据
         return;
     }
     
