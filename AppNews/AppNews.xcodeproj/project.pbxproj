@@ -104,6 +104,8 @@
 		3D88C78D1B306C080073A6EA /* UIWindow+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D88C78C1B306C080073A6EA /* UIWindow+Extension.m */; };
 		3D88C7911B3070030073A6EA /* SCAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D88C7901B3070030073A6EA /* SCAccount.m */; };
 		3D88C7941B3077750073A6EA /* SCAccountTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D88C7931B3077750073A6EA /* SCAccountTool.m */; };
+		3D9E28BC1B4230CB0084F217 /* SCCheckNetworkController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D9E28BA1B4230CB0084F217 /* SCCheckNetworkController.m */; };
+		3D9E28BD1B4230CB0084F217 /* SCCheckNetworkController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D9E28BB1B4230CB0084F217 /* SCCheckNetworkController.xib */; };
 		3DA544EA1B3E3C6D0010A897 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA544E01B3E3C6D0010A897 /* FMDatabase.m */; };
 		3DA544EB1B3E3C6D0010A897 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA544E21B3E3C6D0010A897 /* FMDatabaseAdditions.m */; };
 		3DA544EC1B3E3C6D0010A897 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA544E41B3E3C6D0010A897 /* FMDatabasePool.m */; };
@@ -329,6 +331,9 @@
 		3D88C7901B3070030073A6EA /* SCAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCAccount.m; sourceTree = "<group>"; };
 		3D88C7921B3077750073A6EA /* SCAccountTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCAccountTool.h; sourceTree = "<group>"; };
 		3D88C7931B3077750073A6EA /* SCAccountTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCAccountTool.m; sourceTree = "<group>"; };
+		3D9E28B91B4230CB0084F217 /* SCCheckNetworkController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCCheckNetworkController.h; sourceTree = "<group>"; };
+		3D9E28BA1B4230CB0084F217 /* SCCheckNetworkController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCCheckNetworkController.m; sourceTree = "<group>"; };
+		3D9E28BB1B4230CB0084F217 /* SCCheckNetworkController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SCCheckNetworkController.xib; sourceTree = "<group>"; };
 		3DA544DF1B3E3C6D0010A897 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
 		3DA544E01B3E3C6D0010A897 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
 		3DA544E11B3E3C6D0010A897 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
@@ -484,6 +489,9 @@
 				3D4691C11B2EE684009A852D /* SCEverydayController.m */,
 				3D5602C01B38FC4C007883B6 /* SCDetailViewController.h */,
 				3D5602C11B38FC4C007883B6 /* SCDetailViewController.m */,
+				3D9E28B91B4230CB0084F217 /* SCCheckNetworkController.h */,
+				3D9E28BA1B4230CB0084F217 /* SCCheckNetworkController.m */,
+				3D9E28BB1B4230CB0084F217 /* SCCheckNetworkController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1144,6 +1152,7 @@
 			files = (
 				3D3F9F431B2BD43500687759 /* LaunchScreen.xib in Resources */,
 				3D4692831B2EE685009A852D /* SVProgressHUD.bundle in Resources */,
+				3D9E28BD1B4230CB0084F217 /* SCCheckNetworkController.xib in Resources */,
 				3DD924801B350BF6003F3105 /* SCSpecialCell.xib in Resources */,
 				3D88C7761B3023970073A6EA /* SCLoginViewController.xib in Resources */,
 				3D7290881B36D92C005EAA30 /* SCOptionMenuView.xib in Resources */,
@@ -1176,6 +1185,7 @@
 				3D46927F1B2EE685009A852D /* UIImageView+HighlightedWebCache.m in Sources */,
 				3D7290091B368067005EAA30 /* SCTableViewCell.m in Sources */,
 				3D88C78D1B306C080073A6EA /* UIWindow+Extension.m in Sources */,
+				3D9E28BC1B4230CB0084F217 /* SCCheckNetworkController.m in Sources */,
 				3D46927C1B2EE685009A852D /* UIImage+GIF.m in Sources */,
 				3D4692541B2EE685009A852D /* SCNewController.m in Sources */,
 				3D4692821B2EE685009A852D /* SVIndefiniteAnimatedView.m in Sources */,

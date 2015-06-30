@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SCCheckNetworkController">
+            <connections>
+                <outlet property="scrollView" destination="akF-mp-Jc0" id="2P1-vi-zNV"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zem-Y0-7Gj" userLabel="anchorView">
+                    <rect key="frame" x="10" y="0.0" width="300" height="568"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </view>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="akF-mp-Jc0">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="建议按照以下方法检查网络连接" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gGk-PM-ZD9">
+                            <rect key="frame" x="10" y="64" width="300" height="40"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="aNc-IF-cAn"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.打开手机“设置”并把“Wi-Fi”开关保持开启状态" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PYU-jR-gb7">
+                            <rect key="frame" x="10" y="105" width="300" height="63"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="63" id="AOh-LX-oQs"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0gE-x5-M0O">
+                            <rect key="frame" x="10" y="104" width="300" height="1"/>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="tvN-xx-OeQ"/>
+                            </constraints>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2.打开手机“设置” - “通用” - “蜂窝移动网络”并把“蜂窝移动数据”开关保持开启状态" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QEe-h6-Kb4">
+                            <rect key="frame" x="10" y="168" width="300" height="34"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="3、如果appNews仍然无法连接网络，请访问客服网站或者呼叫400-22222联系appNews团队。" translatesAutoresizingMaskIntoConstraints="NO" id="Una-pe-0RL">
+                            <rect key="frame" x="5" y="207" width="305" height="80"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="80" id="Xvd-ws-4OY"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            <dataDetectorType key="dataDetectorTypes" phoneNumber="YES"/>
+                        </textView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="0gE-x5-M0O" secondAttribute="trailing" id="0Y0-0z-XEs"/>
+                        <constraint firstItem="QEe-h6-Kb4" firstAttribute="leading" secondItem="akF-mp-Jc0" secondAttribute="leading" constant="10" id="3TD-ie-wCc"/>
+                        <constraint firstItem="0gE-x5-M0O" firstAttribute="leading" secondItem="akF-mp-Jc0" secondAttribute="leading" constant="10" id="3e9-HZ-jzy"/>
+                        <constraint firstAttribute="trailing" secondItem="PYU-jR-gb7" secondAttribute="trailing" constant="10" id="4zJ-JV-mHg"/>
+                        <constraint firstAttribute="trailing" secondItem="Una-pe-0RL" secondAttribute="trailing" constant="10" id="5Kn-vy-8YM"/>
+                        <constraint firstItem="gGk-PM-ZD9" firstAttribute="trailing" secondItem="0gE-x5-M0O" secondAttribute="trailing" id="6Ie-tj-8hN"/>
+                        <constraint firstItem="0gE-x5-M0O" firstAttribute="top" secondItem="gGk-PM-ZD9" secondAttribute="bottom" id="78z-VG-BOa"/>
+                        <constraint firstItem="Una-pe-0RL" firstAttribute="top" secondItem="QEe-h6-Kb4" secondAttribute="bottom" constant="5" id="9Ax-b3-atf"/>
+                        <constraint firstItem="QEe-h6-Kb4" firstAttribute="top" secondItem="PYU-jR-gb7" secondAttribute="bottom" id="E5w-BK-K5w"/>
+                        <constraint firstItem="PYU-jR-gb7" firstAttribute="leading" secondItem="akF-mp-Jc0" secondAttribute="leading" constant="10" id="LCq-mR-Eih"/>
+                        <constraint firstAttribute="trailing" secondItem="gGk-PM-ZD9" secondAttribute="trailing" constant="10" id="SY3-jf-33I"/>
+                        <constraint firstItem="gGk-PM-ZD9" firstAttribute="trailing" secondItem="PYU-jR-gb7" secondAttribute="trailing" id="W4K-Y0-SMt"/>
+                        <constraint firstItem="gGk-PM-ZD9" firstAttribute="top" secondItem="akF-mp-Jc0" secondAttribute="top" constant="64" id="XK7-IP-SDM"/>
+                        <constraint firstItem="gGk-PM-ZD9" firstAttribute="leading" secondItem="akF-mp-Jc0" secondAttribute="leading" constant="10" id="kJm-RQ-Mgt"/>
+                        <constraint firstAttribute="bottom" secondItem="Una-pe-0RL" secondAttribute="bottom" id="pIV-wo-pVT"/>
+                        <constraint firstAttribute="trailing" secondItem="QEe-h6-Kb4" secondAttribute="trailing" constant="10" id="pbr-S7-Y39"/>
+                        <constraint firstItem="PYU-jR-gb7" firstAttribute="top" secondItem="0gE-x5-M0O" secondAttribute="bottom" id="qvo-V2-6Mz"/>
+                        <constraint firstAttribute="bottom" secondItem="QEe-h6-Kb4" secondAttribute="bottom" id="vUm-kh-uFi"/>
+                        <constraint firstItem="gGk-PM-ZD9" firstAttribute="leading" secondItem="akF-mp-Jc0" secondAttribute="leading" constant="10" id="vkI-cL-uF7"/>
+                        <constraint firstItem="Una-pe-0RL" firstAttribute="leading" secondItem="akF-mp-Jc0" secondAttribute="leading" constant="5" id="zgh-ww-veD"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="SY3-jf-33I"/>
+                            <exclude reference="kJm-RQ-Mgt"/>
+                            <exclude reference="0Y0-0z-XEs"/>
+                            <exclude reference="vUm-kh-uFi"/>
+                        </mask>
+                    </variation>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" red="0.89532081117021278" green="0.89532081117021278" blue="0.89532081117021278" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="akF-mp-Jc0" secondAttribute="bottom" id="2De-Ax-7aZ"/>
+                <constraint firstItem="Zem-Y0-7Gj" firstAttribute="width" secondItem="0gE-x5-M0O" secondAttribute="width" id="6hh-CD-aRK"/>
+                <constraint firstItem="Zem-Y0-7Gj" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="7WR-uH-pqf"/>
+                <constraint firstItem="Zem-Y0-7Gj" firstAttribute="width" secondItem="PYU-jR-gb7" secondAttribute="width" id="EqC-FK-r9Q"/>
+                <constraint firstItem="akF-mp-Jc0" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="bsR-BO-2J7"/>
+                <constraint firstItem="gGk-PM-ZD9" firstAttribute="width" secondItem="Zem-Y0-7Gj" secondAttribute="width" id="dIN-pS-4Ka"/>
+                <constraint firstItem="akF-mp-Jc0" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="dLL-Bm-tl9"/>
+                <constraint firstItem="QEe-h6-Kb4" firstAttribute="width" secondItem="Zem-Y0-7Gj" secondAttribute="width" id="dwv-vE-d4o"/>
+                <constraint firstItem="Zem-Y0-7Gj" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="fMa-5p-3eV"/>
+                <constraint firstAttribute="bottom" secondItem="Zem-Y0-7Gj" secondAttribute="bottom" id="lCK-kH-1i7"/>
+                <constraint firstAttribute="trailing" secondItem="akF-mp-Jc0" secondAttribute="trailing" id="qHC-n3-1c3"/>
+                <constraint firstAttribute="trailing" secondItem="Zem-Y0-7Gj" secondAttribute="trailing" constant="10" id="tlH-nR-hs2"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="6hh-CD-aRK"/>
+                    <exclude reference="dIN-pS-4Ka"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="30" y="247"/>
+        </view>
+    </objects>
+</document>

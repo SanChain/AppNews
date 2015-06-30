@@ -19,6 +19,7 @@
 #import "SCDbTool.h"
 #import "SCNetworkTool.h"
 #import "UIView+Extension.h"
+#import "SCCheckNetworkController.h"
 
 @interface SCEverydayController () <UIAlertViewDelegate>
 /** 此刻日期 */
@@ -33,6 +34,11 @@
 /** 上拉刷新时全局变量保存页码 */
 static NSInteger page = 1;
 static NSString *ID = @"cell";
+
+typedef enum {
+    firstAlertViewTag ,
+    secondAlertViewTag
+} alertViewTag;
 
 @implementation SCEverydayController
 
@@ -91,8 +97,6 @@ static NSString *ID = @"cell";
 // 通知中心的网络状态监听
 - (void)checkNetworkState
 {
-    NSLog(@"网络发生改变了");
-    
     if ([SCNetworkTool isEnableWIFI]) {
         NSLog(@"wifi网络");
         // 自动刷新加载数据
@@ -100,13 +104,16 @@ static NSString *ID = @"cell";
         
     } else if ([SCNetworkTool isEnable3G]) {
         NSLog(@"蜂窝网络");
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"打开无线局域网提高浏览速度，节省流量" delegate:self cancelButtonTitle:@"好" otherButtonTitles:@"流量..多大点事儿啊", @"设置WIFI" ,nil];
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"打开无线局域网可以提高浏览速度，节省流量哦" delegate:self cancelButtonTitle:@"继续使用" otherButtonTitles: @"查看WiFi设置" ,nil];
+        alertView.tag = firstAlertViewTag;
         [alertView show];
+        
         [self loadOfflineCachesData];
         
     } else {
         NSLog(@"没有网络");
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"当前没有网络，为了不影响您的使用，请检查您的网络设置" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"当前没有网络，为了不影响您的使用，请检查您的网络设置" delegate:self cancelButtonTitle:@"好" otherButtonTitles:nil];
+        alertView.tag = secondAlertViewTag;
         [alertView show];
         [self loadOfflineCachesData];
     }
@@ -114,37 +121,26 @@ static NSString *ID = @"cell";
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if (buttonIndex == 0) { // 第三个按钮：好
-        NSLog(@"-----好");
-    } else if (buttonIndex == 1) { // 第一个按钮：流量..多大点事儿啊
-        NSLog(@"-----流量..多大点事儿啊");
+    if (alertView.tag == firstAlertViewTag) { // 3G网络
+        if (buttonIndex == 0) { // 继续使用
+            NSLog(@"继续使用");
+            [self autoRefresh];
+        } else if (buttonIndex == 1) { // 第1个按钮：查看WiFi设置
+            // 不能跳转到手机的设置界面，用说明的形式向用户展示如何设置wifi
+            NSLog(@"查看WiFi设置");
+            [self autoRefresh];
+            SCCheckNetworkController *checkVc = [[SCCheckNetworkController alloc] init];
+            [self.navigationController pushViewController:checkVc animated:YES];
+        }
         
-    } else if (buttonIndex == 2) { // 第二个按钮：设置WIFI
-        NSLog(@"-----设置WIFI");
-        // 不能跳转到手机的设置界面，只能用图片的形式向用户展示如何设置wifi
-        // 蒙版
-        UIView *hudView = [[UIView alloc] init];
-        hudView.frame = self.view.bounds;
-        hudView.backgroundColor = [UIColor blackColor];
-        hudView.alpha = 0.8;
-        // 展示图片按钮
-        UIButton *btn = [[UIButton alloc] init];
-        [btn setImage:[UIImage imageNamed:@"setting"] forState:UIControlStateNormal];
-        btn.centerX = hudView.centerX;
-        btn.centerY = hudView.centerY;
-        btn.width = 230;
-        btn.height = 360;
-        [btn addTarget:self action:@selector(clickSettingBtn) forControlEvents:UIControlEventTouchUpInside];
-        [hudView addSubview:btn];
-        [self.view addSubview:hudView];
-        self.hudView = hudView;
-        
+    } else if (alertView.tag == secondAlertViewTag){ // 没有网络
+        if (buttonIndex == 0) {
+            SCCheckNetworkController *checkVc = [[SCCheckNetworkController alloc] init];
+            [self.navigationController pushViewController:checkVc animated:YES];
+            
+        }
     }
-}
-
-- (void)clickSettingBtn
-{
-    [self.hudView removeFromSuperview];
+    
 }
 
 // 释放通知中心的观察者
@@ -191,6 +187,7 @@ static NSString *ID = @"cell";
         [self.tableView reloadData];
         // 关闭刷新圈圈
         [self.tableView.header endRefreshing];
+//        self.tableView.header.hidden = YES;
         return YES;
     } else {
         return NO;

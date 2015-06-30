@@ -18,6 +18,7 @@
     self.likes.layer.cornerRadius = 3;
     self.likes.clipsToBounds = YES;
     self.likes.backgroundColor = [UIColor creamColor];
+    
 }
 
 +(id)newCell
