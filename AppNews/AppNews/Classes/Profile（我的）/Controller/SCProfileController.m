@@ -115,8 +115,7 @@ static NSInteger page = 1;
     if (array.count) {
         
         // 字典数组转demoItem模型数组
-        NSMutableArray *oldDemoItems = [NSMutableArray array];
-        oldDemoItems = [SCProfileLikes objectArrayWithKeyValuesArray: array];
+        NSMutableArray *oldDemoItems = [SCProfileLikes objectArrayWithKeyValuesArray: array];
         
         // 把新数据插入到数组最前面
         NSRange range = NSMakeRange(0, oldDemoItems.count);
@@ -141,8 +140,7 @@ static NSInteger page = 1;
         [SCDbTool saveProfileData:responseObject[@"items"]];
         
         // 字典数组转demoItem模型数组
-        NSMutableArray *oldDemoItems = [NSMutableArray array];
-        oldDemoItems = [SCProfileLikes objectArrayWithKeyValuesArray:responseObject[@"items"]];
+        NSMutableArray *oldDemoItems = [SCProfileLikes objectArrayWithKeyValuesArray:responseObject[@"items"]];
         
         // 把新数据插入到数组最前面
         NSRange range = NSMakeRange(0, oldDemoItems.count);

@@ -182,9 +182,9 @@ static NSString *ID = @"cell";
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (self.likesModelArrayM.count) {
-        return 3 + self.commentsModelArray.count;
+        return 3 ;
     } else {
-        return 2 + self.commentsModelArray.count;
+        return 2 ;
     }
     
 }
@@ -212,23 +212,21 @@ static NSString *ID = @"cell";
             break;
         }
             
-        case SCDetailThirdCellNumber:
+//        case SCDetailThirdCellNumber:
+//        {
+//            // 第三行cell
+//            SCThirdCell *thirdCell = [SCThirdCell loadNewCellWithTableView:tableView];
+//            [thirdCell setupCellWithArray:self.likesModelArrayM];
+//            cell = (UITableViewCell *)thirdCell;
+//            break;
+//        }
+    
+        default:
         {
             // 第三行cell
             SCThirdCell *thirdCell = [SCThirdCell loadNewCellWithTableView:tableView];
             [thirdCell setupCellWithArray:self.likesModelArrayM];
             cell = (UITableViewCell *)thirdCell;
-            break;
-        }
-    
-        default:
-        {
-            // 第三行后面的cell
-            SCFourthCell *fourthCell = [SCFourthCell loadNewCellWithTableView:tableView];
-            if ((indexPath.row - 2) <= self.commentsModelArray.count) {
-                fourthCell.commentsData = self.commentsModelArray[indexPath.row - 3];
-            }
-            cell = (UITableViewCell *)fourthCell;
             break;
         }
     }
@@ -249,12 +247,12 @@ static NSString *ID = @"cell";
             break;
             
             
-        case SCDetailThirdCellNumber:
-            return 100;
-            break;
+//        case SCDetailThirdCellNumber:
+//            return 100;
+//            break;
             
         default:
-            return 90;
+            return 100;
             break;
             
     }

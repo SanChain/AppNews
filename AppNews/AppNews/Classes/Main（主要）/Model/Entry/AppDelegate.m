@@ -98,12 +98,13 @@
 // 收到内存警告
 - (void)applicationDidReceiveMemoryWarning:(UIApplication *)application
 {
-    NSLog(@"内存警告");
+    NSLog(@"内存警告了SanChain..");
     SDWebImageManager *mgr = [SDWebImageManager sharedManager];
     // 取消所有下载
     [mgr cancelAll];
     // 清除内存中所有图片
     [mgr.imageCache clearMemory];
+    
 }
 
 @end

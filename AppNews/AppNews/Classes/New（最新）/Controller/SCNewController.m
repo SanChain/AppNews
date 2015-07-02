@@ -76,8 +76,7 @@ static NSString *ID = @"cell";
         page = 2;
         
         // 字典数组转demoItem模型数组
-        NSMutableArray *oldDemoItems = [NSMutableArray array];
-        oldDemoItems = [SCNewDemoItem objectArrayWithKeyValuesArray:demoArray];
+        NSMutableArray *oldDemoItems = [SCNewDemoItem objectArrayWithKeyValuesArray:demoArray];
         
         // 把新数据插入到数组最前面
         NSRange range = NSMakeRange(0, oldDemoItems.count);
@@ -107,8 +106,7 @@ static NSString *ID = @"cell";
         SCLog(@"-----------写入缓存----------------");
         
         // 字典数组转demoItem模型数组
-        NSMutableArray *oldDemoItems = [NSMutableArray array];
-        oldDemoItems = [SCNewDemoItem objectArrayWithKeyValuesArray:responseObject[@"items"]];
+        NSMutableArray *oldDemoItems = [SCNewDemoItem objectArrayWithKeyValuesArray:responseObject[@"items"]];
         
         // 把新数据插入到数组最前面
         NSRange range = NSMakeRange(0, oldDemoItems.count);
@@ -149,8 +147,7 @@ static NSString *ID = @"cell";
         page++;
         
         // 字典数组转demoItem模型数组
-        NSMutableArray *oldDemoItems = [NSMutableArray array];
-        oldDemoItems = [SCNewDemoItem objectArrayWithKeyValuesArray:responseObject[@"items"]];
+        NSMutableArray *oldDemoItems = [SCNewDemoItem objectArrayWithKeyValuesArray:responseObject[@"items"]];
         // 添加旧数据到demoItems数组的后面
         [self.demoItems addObjectsFromArray:oldDemoItems];
         

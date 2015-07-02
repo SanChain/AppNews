@@ -10,9 +10,6 @@
 @class SCDetailCommentsData;
 
 @interface SCFourthCell : UITableViewCell
-//加载xib
-+ (instancetype)loadFirstCell;
-
 // 实例化可重用的cell
 + (instancetype)loadNewCellWithTableView:(UITableView *)tableView;
 

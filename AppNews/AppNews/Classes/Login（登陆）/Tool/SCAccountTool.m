@@ -29,8 +29,7 @@
 /** 解档接口 */
 + (SCAccount *)account
 {
-    SCAccount *account = [[SCAccount alloc] init];
-    account = [NSKeyedUnarchiver unarchiveObjectWithFile: self.path];
+    SCAccount *account = [NSKeyedUnarchiver unarchiveObjectWithFile: self.path];
     return account;
 }
 @end

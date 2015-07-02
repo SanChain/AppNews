@@ -119,6 +119,8 @@ typedef enum {
 #pragma mark 自动检测网络状态
 - (void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
+    [super viewWillAppear:animated];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(checkNetworkState) name:kReachabilityChangedNotification object:nil];
     self.reachability = [Reachability reachabilityForInternetConnection];
     [self.reachability startNotifier];

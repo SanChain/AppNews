@@ -56,7 +56,4 @@
     self.authorDesc.text = demoAuthor.desc;
 }
 
-
-#pragma mark 点击作者的头像
-
 @end

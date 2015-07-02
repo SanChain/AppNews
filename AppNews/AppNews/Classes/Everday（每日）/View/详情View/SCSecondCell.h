@@ -10,9 +10,6 @@
 #import "SCDetailDemo.h"
 
 @interface SCSecondCell : UITableViewCell
-// 加载xib
-+ (instancetype)loadFirstCell;
-
 // 实例化可重用的cell
 + (SCSecondCell *)loadNewCellWithTableView:(UITableView *)tableView;
 

@@ -31,6 +31,8 @@ static CGFloat SCTopViewH = 150; // 创业工具箱宽
 static CGFloat SCEdgeInset = 150; // 创业工具箱高
 static NSInteger scrollCount = 1; // scrollView滚动的次数
 
+static NSString * const reuseIdentifier = @"Cell";
+
 @implementation SCSpecialController
 
 - (NSMutableArray *)items
@@ -40,8 +42,6 @@ static NSInteger scrollCount = 1; // scrollView滚动的次数
     }
     return _items;
 }
-
-static NSString * const reuseIdentifier = @"Cell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -93,14 +93,13 @@ static NSString * const reuseIdentifier = @"Cell";
         page = 2;
         
         // 字典数组 转 模型数组
-        NSMutableArray *newItems = [NSMutableArray array];
-        newItems = [SCSpecialItem objectArrayWithKeyValuesArray:array];
+        NSMutableArray *newItems = [SCSpecialItem objectArrayWithKeyValuesArray:array];
         // 把最新加载的数据添加到总数组最前面（因为不知道请求参数，所以无法筛选到最新的数据）
         NSRange range = NSMakeRange(0, newItems.count);
         NSIndexSet *set = [NSIndexSet indexSetWithIndexesInRange:range];
         [self.items insertObjects:newItems atIndexes:set];
         
-        NSLog(@"------读取缓存--------");
+        SCLog(@"------读取缓存--------");
         
         // 刷新cell
         [self.collectionView reloadData];
@@ -120,8 +119,7 @@ static NSString * const reuseIdentifier = @"Cell";
         [SCDbTool saveSpecialDemoData:responseObject];
         
         // 字典数组 转 模型数组
-        NSMutableArray *newItems = [NSMutableArray array];
-        newItems = [SCSpecialItem objectArrayWithKeyValuesArray:responseObject];
+        NSMutableArray *newItems = [SCSpecialItem objectArrayWithKeyValuesArray:responseObject];
         // 把最新加载的数据添加到总数组最前面（因为不知道请求参数，所以无法筛选到最新的数据）
         NSRange range = NSMakeRange(0, newItems.count);
         NSIndexSet *set = [NSIndexSet indexSetWithIndexesInRange:range];
@@ -160,8 +158,7 @@ static NSString * const reuseIdentifier = @"Cell";
         page++;
         
         // 字典数组 转 模型数组
-        NSMutableArray *oldItems = [NSMutableArray array];
-        oldItems = [SCSpecialItem objectArrayWithKeyValuesArray:responseObject];
+        NSMutableArray *oldItems = [SCSpecialItem objectArrayWithKeyValuesArray:responseObject];
         // 把旧item数据添加到总数组后面
         [self.items addObjectsFromArray:oldItems];
         
@@ -198,13 +195,13 @@ static NSString * const reuseIdentifier = @"Cell";
 #pragma mark <UICollectionViewDelegate>
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"didSelectItemAtIndexPath");
+    SCLog(@"didSelectItemAtIndexPath");
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     double distance = -SCEdgeInset - scrollView.contentOffset.y;
-    NSLog(@"------scrollview--->%lf", distance);
+    SCLog(@"------scrollview--->%lf", distance);
     if (scrollCount < 5) {
         scrollCount++;
         return;
@@ -224,7 +221,7 @@ static NSString * const reuseIdentifier = @"Cell";
 #pragma mark - 监听topView点击
 - (void)clickTopView
 {
-    NSLog(@"clickTopView");
+    SCLog(@"clickTopView");
 }
 
 
@@ -244,14 +241,14 @@ static NSString * const reuseIdentifier = @"Cell";
 - (void)clickSearchItem
 {
 #warning TODO 搜索VC
-    NSLog(@"%s", __func__);
+    SCLog(@"%s", __func__);
 }
 
 #pragma mark - 监听rightBarButtonItem
 - (void)clickAddItem
 {
 #warning TODO 发布DEMO
-    NSLog(@"%s", __func__);
+    SCLog(@"%s", __func__);
 }
 
 
