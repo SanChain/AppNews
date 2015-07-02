@@ -41,7 +41,6 @@
     [tableView registerNib:[UINib nibWithNibName:@"SCDetailFirstCell" bundle:nil] forCellReuseIdentifier:@"fourthCell"];
     if (cell == nil) {
         cell = [self loadFourthCell];
-        
     }
     return cell;
 }

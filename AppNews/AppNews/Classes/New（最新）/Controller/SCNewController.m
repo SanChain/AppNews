@@ -10,11 +10,10 @@
 #import "MJExtension.h"
 #import "MJRefresh.h"
 #import "SCNewDemoItem.h"
-#import "AFNetworking.h"
 #import "SCNewCell.h"
 #import "UITableView+FDTemplateLayoutCell.h"
 #import "SCDbTool.h"
-
+#import "SCHttpTool.h"
 
 @interface SCNewController ()
 /** demoItems模型数组 */
@@ -70,8 +69,6 @@ static NSString *ID = @"cell";
 // 下拉加载最新的demo数据
 - (void)loadNewDemo
 {
-    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
-    
     // 查询缓存数据
     NSArray *demoArray = [SCDbTool queryNewDemoData];
     if (demoArray.count) {
@@ -96,21 +93,19 @@ static NSString *ID = @"cell";
     
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"pagesize"] = @20;
-    
     if (self.demoItems.count > 0) { // 设置允许上拉刷新一次
         [self.tableView.header endRefreshing];
         return;
     }
-
     NSString *url = [NSString stringWithFormat:@"http://www.demo8.com/api/product?page=%zd&pagesize=20&sort=inputtime", page];
     
-    [mgr GET:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [SCHttpTool GET:url params:params timeoutInterval:8 success:^(id responseObject) {
         page++;
         
         // 写入数据库
         [SCDbTool saveNewDemoData:responseObject[@"items"]];
-        NSLog(@"-----------写入缓存----------------");
-
+        SCLog(@"-----------写入缓存----------------");
+        
         // 字典数组转demoItem模型数组
         NSMutableArray *oldDemoItems = [NSMutableArray array];
         oldDemoItems = [SCNewDemoItem objectArrayWithKeyValuesArray:responseObject[@"items"]];
@@ -119,13 +114,15 @@ static NSString *ID = @"cell";
         NSRange range = NSMakeRange(0, oldDemoItems.count);
         NSIndexSet *set = [NSIndexSet indexSetWithIndexesInRange:range];
         [self.demoItems insertObjects:oldDemoItems atIndexes:set];
-
+        
         
         
         [self.tableView reloadData];
         [self.tableView.header endRefreshing];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"请求失败");
+    } failure:^(NSError *error) {
+        SCLog(@"请求失败");
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"加载失败" message:@"网络不给力，请检查网络设置或稍后再试" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
+        [alert show];
     }];
 }
 
@@ -144,14 +141,11 @@ static NSString *ID = @"cell";
 // 加载旧的demo数据
 - (void)loadOldDemo
 {
-    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
-    
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"pagesize"] = @20;
-    
     NSString *url = [NSString stringWithFormat:@"http://www.demo8.com/api/product?page=%zd&pagesize=20&sort=inputtime", page];
     
-    [mgr GET:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [SCHttpTool GET:url params:params timeoutInterval:8 success:^(id responseObject) {
         page++;
         
         // 字典数组转demoItem模型数组
@@ -160,14 +154,14 @@ static NSString *ID = @"cell";
         // 添加旧数据到demoItems数组的后面
         [self.demoItems addObjectsFromArray:oldDemoItems];
         
-//        NSLog(@"<--------上拉--------》%zd", self.demoItems.count);
-
+        SCLog(@"<--------上拉--------》%zd", self.demoItems.count);
         
         [self.tableView reloadData];
         [self.tableView.footer endRefreshing];
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"请求失败");
+    } failure:^(NSError *error) {
+        SCLog(@"请求失败");
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"加载失败" message:@"网络不给力，请检查网络设置或稍后再试" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
+        [alert show];
     }];
 }
 

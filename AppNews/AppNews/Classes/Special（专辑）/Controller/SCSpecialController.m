@@ -12,11 +12,11 @@
 #import "MJExtension.h"
 #import "SCSpecialItem.h"
 #import "SCWorkTool.h"
-#import "AFNetworking.h"
 #import "SCFlowLayout.h"
 #import "Colours.h"
 #import "UIView+Extension.h"
 #import "SCDbTool.h"
+#import "SCHttpTool.h"
 
 @interface SCSpecialController ()
 /** specialItem模型数组 */
@@ -112,11 +112,8 @@ static NSString * const reuseIdentifier = @"Cell";
         return;
     }
     
-    // http请求————item
-    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
-    
     NSString *url = [NSString stringWithFormat:@"http://www.demo8.com/api/topic?page=1"];
-    [mgr GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [SCHttpTool GET:url params:nil timeoutInterval:10.0 success:^(id responseObject) {
         page++;
         
         // 写入数据库
@@ -130,19 +127,20 @@ static NSString * const reuseIdentifier = @"Cell";
         NSIndexSet *set = [NSIndexSet indexSetWithIndexesInRange:range];
         [self.items insertObjects:newItems atIndexes:set];
         
-        NSLog(@"------>>下拉----%zd", self.items.count);
-
+        SCLog(@"------>>下拉----%zd", self.items.count);
+        
         // 刷新cell
         [self.collectionView reloadData];
         // 关闭刷新菊花
         [self.collectionView.header endRefreshing];
         // 隐藏刷新头部
         self.collectionView.header.hidden = YES;
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"请求失败");
+    } failure:^(NSError *error) {
+        SCLog(@"请求失败");
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"加载失败" message:@"网络不给力，请检查网络设置或稍后再试" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
+        [alert show];
         [self.collectionView.header endRefreshing];
     }];
-    
 }
 
 #pragma mark 上拉刷新
@@ -157,11 +155,8 @@ static NSString * const reuseIdentifier = @"Cell";
 // 加载旧item数据
 - (void)loadOldItemData
 {
-    // http请求————item
-    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
-    
     NSString *url = [NSString stringWithFormat:@"http://www.demo8.com/api/topic?page=%zd", page];
-    [mgr GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [SCHttpTool GET:url params:nil timeoutInterval:10.0 success:^(id responseObject) {
         page++;
         
         // 字典数组 转 模型数组
@@ -170,15 +165,16 @@ static NSString * const reuseIdentifier = @"Cell";
         // 把旧item数据添加到总数组后面
         [self.items addObjectsFromArray:oldItems];
         
-//        NSLog(@"------>>上拉----%zd", self.items.count);
+        SCLog(@"------>>上拉----%zd", self.items.count);
         
         // 刷新cell
         [self.collectionView reloadData];
         // 关闭刷新菊花
         [self.collectionView.footer endRefreshing];
-
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"请求失败");
+    } failure:^(NSError *error) {
+        SCLog(@"请求失败");
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"加载失败" message:@"网络不给力，请检查网络设置或稍后再试" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
+        [alert show];
         [self.collectionView.footer endRefreshing];
     }];
 }

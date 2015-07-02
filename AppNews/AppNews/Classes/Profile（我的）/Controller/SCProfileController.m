@@ -15,7 +15,7 @@
 #import "SCConst.h"
 #import "Colours.h"
 #import "SCProfileLikes.h"
-#import "AFNetworking.h"
+#import "SCHttpTool.h"
 #import "MJExtension.h"
 #import "UITableView+FDTemplateLayoutCell.h"
 #import "MBProgressHUD+MJ.h"
@@ -130,15 +130,11 @@ static NSInteger page = 1;
         return;
     }
     
-    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
-    
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"pagesize"] = @10;
-    
-    
     NSString *url = [NSString stringWithFormat:@"http://www.demo8.com/api/product?page=%zd&pagesize=10&sort=inputtime", page];
     
-    [mgr GET:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [SCHttpTool GET:url params:params timeoutInterval:8 success:^(id responseObject) {
         page++;
         
         // 写入数据库
@@ -156,8 +152,10 @@ static NSInteger page = 1;
         [self.tableView reloadData];
         [refresh endRefreshing];
         [MBProgressHUD hideHUD];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"请求失败");
+    } failure:^(NSError *error) {
+        SCLog(@"请求失败");
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"加载失败" message:@"网络不给力，请检查网络设置或稍后再试" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
+        [alert show];
         [refresh endRefreshing];
         [MBProgressHUD hideHUD];
     }];

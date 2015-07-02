@@ -11,7 +11,6 @@
 #import "UIView+Extension.h"
 #import "SCConst.h"
 #import "Colours.h"
-#import "AFNetworking.h"
 #import "MJExtension.h"
 #import "SCDetailDemo.h"
 #import "SCDetailDemoAuthor.h"
@@ -22,7 +21,7 @@
 #import "SCSecondCell.h"
 #import "SCThirdCell.h"
 #import "SCFourthCell.h"
-
+#import "SCHttpTool.h"
 
 @interface SCDetailViewController ()<UIWebViewDelegate, UITableViewDataSource, UITableViewDelegate>
 
@@ -121,12 +120,9 @@ static NSString *ID = @"cell";
 - (void)loadDetailData
 {
     [MBProgressHUD showMessage:@"加载中..."];
-    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
-//    mgr.requestSerializer.timeoutInterval = 10.0;
-    
-    NSString *url = [NSString stringWithFormat:@"http://www.demo8.com/api/product/%zd", self.demoID.integerValue];
-    [mgr GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
 
+    NSString *url = [NSString stringWithFormat:@"http://www.demo8.com/api/product/%zd", self.demoID.integerValue];
+    [SCHttpTool GET:url params:nil timeoutInterval:8 success:^(id responseObject) {
         // 字典 转 demo模型
         SCDetailDemo *detailDemo = [SCDetailDemo objectWithKeyValues:responseObject];
         self.detailDemo = detailDemo;
@@ -134,12 +130,12 @@ static NSString *ID = @"cell";
         // demo作者模型
         SCDetailDemoAuthor *demoAuthor = [SCDetailDemoAuthor objectWithKeyValues:detailDemo.author];
         self.demoAuthor = demoAuthor;
-
+        
         // 装入点赞者模型数组
         for (SCDetailLikesData *likesData in detailDemo.likesData) {
             [self.likesModelArrayM addObject:likesData];
         }
-//        NSLog(@"-----likesModelArrayM:%zd", self.likesModelArrayM.count);
+        //        NSLog(@"-----likesModelArrayM:%zd", self.likesModelArrayM.count);
         
         // 装入评论者数组模型
         for (SCDetailCommentsData *commentsData in detailDemo.commentsData) {
@@ -147,11 +143,12 @@ static NSString *ID = @"cell";
         }
         
         [MBProgressHUD hideHUD];
-//        NSLog(@"-----commentsModelArray:%zd", self.commentsModelArray.count);
-
+        //        NSLog(@"-----commentsModelArray:%zd", self.commentsModelArray.count);
+        
         [self.tableView reloadData];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"请求失败");
+    } failure:^(NSError *error) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"加载失败" message:@"网络不给力，请检查网络设置或稍后再试" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
+        [alert show];
         [MBProgressHUD hideHUD];
     }];
 }
@@ -181,7 +178,7 @@ static NSString *ID = @"cell";
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
-// 详情页面tableViewDataSource
+#pragma mark 数据源方法
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (self.likesModelArrayM.count) {
@@ -228,7 +225,9 @@ static NSString *ID = @"cell";
         {
             // 第三行后面的cell
             SCFourthCell *fourthCell = [SCFourthCell loadNewCellWithTableView:tableView];
-            fourthCell.commentsData = self.commentsModelArray[indexPath.row - 3];
+            if ((indexPath.row - 2) <= self.commentsModelArray.count) {
+                fourthCell.commentsData = self.commentsModelArray[indexPath.row - 3];
+            }
             cell = (UITableViewCell *)fourthCell;
             break;
         }
@@ -275,8 +274,8 @@ static NSString *ID = @"cell";
     [MBProgressHUD showMessage:@"加载中..."];
     [self.webView removeFromSuperview]; // 内存优化
     
-    // 设置网络请求超时时间为7秒
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:self.detailDemo.website] cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:7.0];
+    // 设置网络请求超时时间
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:self.detailDemo.website] cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:8.0];
     
     [self.webView loadRequest:request];
     
@@ -286,11 +285,14 @@ static NSString *ID = @"cell";
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
     webView.scrollView.contentInset = UIEdgeInsetsMake(SCNaviBar, 0, 0, 0);
+    
     [MBProgressHUD hideHUD];
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
 {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"加载失败" message:@"网络不给力，请检查网络设置或稍后再试" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
+    [alert show];
     [MBProgressHUD hideHUD];
 }
 

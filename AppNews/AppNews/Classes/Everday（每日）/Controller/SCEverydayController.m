@@ -10,7 +10,6 @@
 #import "UIBarButtonItem+Extension.h"
 #import "SCEverydayCell.h"
 #import "MJExtension.h"
-#import "AFNetworking.h"
 #import "MJRefresh.h"
 #import "SCEverydayDemo.h"
 #import "SCEverydayDemoItem.h"
@@ -20,6 +19,8 @@
 #import "SCNetworkTool.h"
 #import "UIView+Extension.h"
 #import "SCCheckNetworkController.h"
+#import "SCHttpTool.h"
+
 
 @interface SCEverydayController () <UIAlertViewDelegate>
 /** 此刻日期 */
@@ -95,7 +96,7 @@ typedef enum {
     // 本地通知对象
     UILocalNotification *localNotification = [[UILocalNotification alloc] init];
     localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:30];
-    localNotification.repeatInterval = kCFCalendarUnitHour;
+    localNotification.repeatInterval = kCFCalendarUnitMonth;
     localNotification.timeZone = [NSTimeZone defaultTimeZone];
     localNotification.alertBody = @"学习iOS";
     localNotification.alertAction = @"查看吧";
@@ -226,8 +227,6 @@ typedef enum {
 // 下拉加载demo新数据
 - (void)loadDemoNewData
 {
-    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
-
     // 加载离线缓存的数据
     BOOL isLoadSuccess = [self loadOfflineCachesData];
     if (isLoadSuccess) { // 成功加载了缓存数据
@@ -236,9 +235,9 @@ typedef enum {
     
     NSString *url = [NSString stringWithFormat:@"http://www.demo8.com/api/product?date=%@&page=%zd", self.stringM, page];
 
-    [mgr GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [SCHttpTool GET:url params:nil timeoutInterval:8 success:^(id responseObject) {
         page++;
-//        NSLog(@"------写入数据库---------");
+        SCLog(@"------写入数据库---------");
         
         // 把数组写入SQLite数据库
         [SCDbTool saveDemoData:responseObject[@"items"]];
@@ -258,17 +257,15 @@ typedef enum {
         NSRange range = NSMakeRange(0, newFrameArrayM.count);
         NSIndexSet *set = [NSIndexSet indexSetWithIndexesInRange:range];
         [self.frameArrayM insertObjects: newFrameArrayM atIndexes:set];
-
-//        NSLog(@"<<----下拉刷新------->>%zd", self.frameArrayM.count);
-        
         
         // 更新表格
         [self.tableView reloadData];
         // 结束刷新
         [self.tableView.header endRefreshing];
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"请求失败");
+    } failure:^(NSError *error) {
+        SCLog(@"请求失败");
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"加载失败" message:@"网络不给力，请检查网络设置或稍后再试" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
+        [alert show];
         [self.tableView.header endRefreshing];
     }];
 }
@@ -285,12 +282,9 @@ typedef enum {
 // 上拉加载demo数据
 - (void)loadDemoOldData
 {
-    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
-    
     NSString *url = [NSString stringWithFormat:@"http://www.demo8.com/api/product?date=%@&page=%zd", self.stringM, page];
     
-    [mgr GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        NSLog(@"%@", responseObject);
+    [SCHttpTool GET:url params:nil timeoutInterval:8.0 success:^(id responseObject) {
         NSInteger pages = [responseObject[@"pages"] integerValue];
         
         // 解决了上拉刷新数据加载的算法
@@ -300,7 +294,7 @@ typedef enum {
         } else { // 算法、逻辑
             // 新的一天，重置页码
             page = 1;
-
+            
             // 日期递减1天算法步骤
             
             // 先将日期转为秒NSTimeInterval
@@ -335,15 +329,14 @@ typedef enum {
         
         [self.frameArrayM addObjectsFromArray:oldDemoArray];
         
-//        NSLog(@"<-----上拉刷新-------%zd", self.frameArrayM.count);
-        
         // 更新表格
         [self.tableView reloadData];
         // 结束刷新
         [self.tableView.footer endRefreshing];
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"请求失败");
+    } failure:^(NSError *error) {
+        SCLog(@"请求失败");
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"加载失败" message:@"网络不给力，请检查网络设置或稍后再试" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
+        [alert show];
     }];
 }
 

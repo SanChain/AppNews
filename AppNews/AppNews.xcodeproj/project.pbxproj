@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D227B121B44FBA10072F19A /* SCHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D227B111B44FBA10072F19A /* SCHttpTool.m */; };
 		3D3F9F401B2BD43500687759 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D3F9F3F1B2BD43500687759 /* Images.xcassets */; };
 		3D3F9F431B2BD43500687759 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D3F9F411B2BD43500687759 /* LaunchScreen.xib */; };
 		3D3F9F4F1B2BD43500687759 /* AppNews.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D3F9F4E1B2BD43500687759 /* AppNews.m */; };
@@ -143,6 +144,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3D227B0F1B44E44F0072F19A /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		3D227B101B44FBA10072F19A /* SCHttpTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCHttpTool.h; sourceTree = "<group>"; };
+		3D227B111B44FBA10072F19A /* SCHttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCHttpTool.m; sourceTree = "<group>"; };
 		3D3F9F2F1B2BD43400687759 /* AppNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D3F9F331B2BD43500687759 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3D3F9F3F1B2BD43500687759 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -436,6 +440,7 @@
 				3D3F9F3F1B2BD43500687759 /* Images.xcassets */,
 				3D3F9F411B2BD43500687759 /* LaunchScreen.xib */,
 				3D3F9F331B2BD43500687759 /* Info.plist */,
+				3D227B0F1B44E44F0072F19A /* PrefixHeader.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -1026,6 +1031,8 @@
 				3DA544F41B3E3FF70010A897 /* SCDbTool.m */,
 				3DD515AA1B41842800DA84B6 /* SCNetworkTool.h */,
 				3DD515AB1B41842800DA84B6 /* SCNetworkTool.m */,
+				3D227B101B44FBA10072F19A /* SCHttpTool.h */,
+				3D227B111B44FBA10072F19A /* SCHttpTool.m */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -1288,6 +1295,7 @@
 				3D88C7941B3077750073A6EA /* SCAccountTool.m in Sources */,
 				3D5F28481B3105690025AC85 /* MJFoundation.m in Sources */,
 				3DC538361B39C684008689E0 /* SCEverydayDemoFrame.m in Sources */,
+				3D227B121B44FBA10072F19A /* SCHttpTool.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1407,6 +1415,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Jari Aho (N6UX62EFNQ)";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = AppNews/PrefixHeader.pch;
 				INFOPLIST_FILE = AppNews/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1421,6 +1431,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Jari Aho (N6UX62EFNQ)";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = AppNews/PrefixHeader.pch;
 				INFOPLIST_FILE = AppNews/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

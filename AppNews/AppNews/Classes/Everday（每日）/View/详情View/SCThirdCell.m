@@ -37,14 +37,6 @@
         // 创建头像按钮
         UIButton *iconBtn = [[UIButton alloc]init];
         SCDetailLikesData *likesData = likesArray[i];
-//        if (i == (count-1)) { // 最后一个点赞按钮
-//
-//            NSString *likesN = [NSString stringWithFormat:@"+%zd", count-1];
-//            [iconBtn setTitle: likesN forState:UIControlStateNormal];
-//            iconBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
-//            [iconBtn setBackgroundColor:[UIColor orangeColor]];
-//
-//        }
         [iconBtn sd_setImageWithURL:[NSURL URLWithString: likesData.avatar] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"tabbar_profile_selected"]];
         
         // 设置尺寸
@@ -70,15 +62,6 @@
         [self.contentView addSubview:iconBtn];
     }
 }
-
-
-#pragma mark 设置cell的内容和frame
-//- (void)setLikesArray:(NSMutableArray *)likesArray
-//{
-//    _likesArray = [NSMutableArray array];
-//    _likesArray = likesArray;
-//    
-//}
 
 
 @end
