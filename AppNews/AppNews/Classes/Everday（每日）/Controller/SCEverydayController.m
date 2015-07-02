@@ -84,6 +84,35 @@ typedef enum {
     
     // 3. 上拉刷新加载旧数据
     [self upRefreshOldData];
+    
+    // 4.本地推送通知
+    [self registerLocalPushNotification];
+}
+
+#pragma mark 注册本地推送通知
+- (void)registerLocalPushNotification
+{
+    // 本地通知对象
+    UILocalNotification *localNotification = [[UILocalNotification alloc] init];
+    localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:30];
+    localNotification.repeatInterval = kCFCalendarUnitHour;
+    localNotification.timeZone = [NSTimeZone defaultTimeZone];
+    localNotification.alertBody = @"学习iOS";
+    localNotification.alertAction = @"查看吧";
+    localNotification.soundName = UILocalNotificationDefaultSoundName;
+    localNotification.userInfo = [NSDictionary dictionaryWithObject:@"新的开始" forKey:@"key"];
+    localNotification.applicationIconBadgeNumber = 1;
+    
+    // iOS8.0请求推送
+    UIApplication *application = [UIApplication sharedApplication];
+    if ([UIDevice currentDevice].systemVersion.doubleValue >= 8.0) {
+        UIUserNotificationType type = UIUserNotificationTypeSound | UIUserNotificationTypeBadge | UIUserNotificationTypeAlert;
+        UIUserNotificationSettings *setting = [UIUserNotificationSettings settingsForTypes:type categories:nil];
+        [application registerUserNotificationSettings:setting];
+    }
+    
+    // 注册本地通知
+    [application scheduleLocalNotification:localNotification];
 }
 
 #pragma mark 自动检测网络状态

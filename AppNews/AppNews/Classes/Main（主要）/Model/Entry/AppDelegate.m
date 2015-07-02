@@ -21,7 +21,9 @@
 
 @implementation AppDelegate
 
-
+/**
+ *  程序启动会调用这个方法
+ */
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
@@ -38,7 +40,41 @@
     
     [self.window makeKeyAndVisible];
     
+    // 取消推送
+    application.applicationIconBadgeNumber = 0;
+
+    NSArray *array =  application.scheduledLocalNotifications;
+    for (UILocalNotification *localNoti in array) {
+        NSDictionary *dict = localNoti.userInfo;
+        NSString *string  = dict[@"key"];
+        if ([string isEqualToString:@"新的开始"]) {
+            [application cancelLocalNotification:localNoti];
+        }
+    }
+    
     return YES;
+}
+
+/**
+ *  程序在前台会自动调用这个方法
+ *  程序在后台点击通知进入前台时会调用这个方法
+ */
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
+{
+    application.applicationIconBadgeNumber = 0;
+
+    // 取消相应的推送
+    NSArray *array =  application.scheduledLocalNotifications;
+    NSLog(@"---->%@", array);
+    for (UILocalNotification *localNoti in array) {
+        NSDictionary *dict = localNoti.userInfo;
+        NSString *string  = dict[@"key"];
+        if ([string isEqualToString:@"新的开始"]) {
+            [application cancelLocalNotification:localNoti];
+        } else {
+            return;
+        }
+    }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

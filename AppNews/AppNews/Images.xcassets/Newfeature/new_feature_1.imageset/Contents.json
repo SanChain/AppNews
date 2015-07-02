@@ -19,13 +19,6 @@
       "idiom" : "iphone",
       "scale" : "3x",
       "filename" : "new_feature_1-621w-1104h@3x.png"
-    },
-    {
-      "idiom" : "iphone",
-      "filename" : "new_feature_1-375w-667h@2x.png",
-      "unassigned" : true,
-      "subtype" : "retina4",
-      "scale" : "2x"
     }
   ],
   "info" : {
