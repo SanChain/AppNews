@@ -9,10 +9,11 @@
 #import "SCIntroductionView.h"
 #import "MJExtension.h"
 #import "Colours.h"
+#import "SCProfileIntroduction.h"
 
 @implementation SCIntroductionView
 
-+ (id)loadIntroductionView
++ (instancetype)loadIntroductionView
 {
     return [[NSBundle mainBundle] loadNibNamed:@"SCIntroductionView" owner:nil options:nil][0];
 }

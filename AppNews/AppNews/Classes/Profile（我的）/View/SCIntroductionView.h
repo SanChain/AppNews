@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SCProfileIntroduction.h"
+@class SCProfileIntroduction;
 
 @interface SCIntroductionView : UIView
 /** 加载xib */
-+ (id)loadIntroductionView;
++ (instancetype)loadIntroductionView;
 @property (weak, nonatomic) IBOutlet UIImageView *nickImgView;
 @property (weak, nonatomic) IBOutlet UILabel *introL;
 @property (weak, nonatomic) IBOutlet UILabel *nickL;

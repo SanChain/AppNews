@@ -7,6 +7,7 @@
 //
 
 #import "SCNetworkTool.h"
+#import "Reachability.h"
 
 @implementation SCNetworkTool
 

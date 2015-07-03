@@ -10,7 +10,7 @@
 #import "SCEverydayDemoItem.h"
 #import "Colours.h"
 #import "NSString+Extension.h"
-
+#import "SCEverydayDemoFrame.h"
 
 
 @interface SCEverydayCell ()

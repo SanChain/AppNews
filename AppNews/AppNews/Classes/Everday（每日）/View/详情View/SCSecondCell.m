@@ -8,6 +8,7 @@
 
 #import "SCSecondCell.h"
 #import "Colours.h"
+#import "SCDetailDemo.h"
 
 @interface SCSecondCell ()
 @property (weak, nonatomic) IBOutlet UIButton *likesBtn;

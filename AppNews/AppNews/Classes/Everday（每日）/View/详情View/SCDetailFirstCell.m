@@ -8,6 +8,7 @@
 
 #import "SCDetailFirstCell.h"
 #import "UIImageView+WebCache.h"
+#import "SCDetailDemoAuthor.h"
 
 @interface SCDetailFirstCell ()
 /** 作者头像按钮 */

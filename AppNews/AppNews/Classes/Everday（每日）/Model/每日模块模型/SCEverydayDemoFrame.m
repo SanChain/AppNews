@@ -8,6 +8,7 @@
 
 #import "SCEverydayDemoFrame.h"
 #import "NSString+Extension.h"
+#import "SCEverydayDemoItem.h"
 
 @implementation SCEverydayDemoFrame
 

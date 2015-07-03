@@ -659,8 +659,8 @@
 			isa = PBXGroup;
 			children = (
 				3D88C78B1B306C080073A6EA /* UIWindow+Extension.h */,
-				3D88C78C1B306C080073A6EA /* UIWindow+Extension.m */,
 				3D88C7881B3065F40073A6EA /* NSString+Extension.h */,
+				3D88C78C1B306C080073A6EA /* UIWindow+Extension.m */,
 				3D88C7891B3065F40073A6EA /* NSString+Extension.m */,
 				3D4692891B2F3E41009A852D /* UIBarButtonItem+Extension.h */,
 				3D46928A1B2F3E41009A852D /* UIBarButtonItem+Extension.m */,

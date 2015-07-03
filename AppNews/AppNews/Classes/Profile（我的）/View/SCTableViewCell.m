@@ -8,6 +8,7 @@
 
 #import "SCTableViewCell.h"
 #import "Colours.h"
+#import "SCProfileLikes.h"
 
 @implementation SCTableViewCell
 

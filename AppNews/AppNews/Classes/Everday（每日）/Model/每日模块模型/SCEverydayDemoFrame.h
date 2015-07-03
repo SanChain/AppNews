@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SCEverydayDemoItem.h"
+@class SCEverydayDemoItem;
 
 
 #define SCTitleFont [UIFont systemFontOfSize:14]

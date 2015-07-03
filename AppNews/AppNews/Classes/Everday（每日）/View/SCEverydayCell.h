@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SCEverydayDemoFrame.h"
+@class SCEverydayDemoFrame;
 
 @interface SCEverydayCell : UITableViewCell
 @property (nonatomic, strong) SCEverydayDemoFrame *demoFrame;

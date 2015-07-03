@@ -20,6 +20,7 @@
 #import "UIView+Extension.h"
 #import "SCCheckNetworkController.h"
 #import "SCHttpTool.h"
+#import "Reachability.h"
 
 
 @interface SCEverydayController () <UIAlertViewDelegate>
@@ -90,6 +91,8 @@ typedef enum {
     [self registerLocalPushNotification];
 }
 
+
+
 #pragma mark 注册本地推送通知
 - (void)registerLocalPushNotification
 {
@@ -119,7 +122,6 @@ typedef enum {
 #pragma mark 自动检测网络状态
 - (void)viewWillAppear:(BOOL)animated
 {
-    [super viewWillAppear:animated];
     [super viewWillAppear:animated];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(checkNetworkState) name:kReachabilityChangedNotification object:nil];
     self.reachability = [Reachability reachabilityForInternetConnection];

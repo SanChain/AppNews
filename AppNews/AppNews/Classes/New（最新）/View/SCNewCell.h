@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SCNewDemoItem.h"
+@class SCNewDemoItem;
 
 @interface SCNewCell : UITableViewCell
 /** demoItem模型 */

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SCDetailDemo.h"
+@class SCDetailDemo;
 
 @interface SCSecondCell : UITableViewCell
 // 实例化可重用的cell

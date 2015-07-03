@@ -113,7 +113,11 @@ static NSString *ID = @"cell";
     // 自动加载详情页面
     [self clickDetailBtn];
     
-    
+}
+
+- (void)dealloc
+{
+    SCLog(@"------detailVC");
 }
 
 #pragma mark 加载详情 网络数据
@@ -252,7 +256,7 @@ static NSString *ID = @"cell";
 //            break;
             
         default:
-            return 100;
+            return 120;
             break;
             
     }

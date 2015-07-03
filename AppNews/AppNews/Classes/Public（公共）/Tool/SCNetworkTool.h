@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Reachability.h"
+@class Reachability;
 
 @interface SCNetworkTool : NSObject
 // 检测是否wifi网络

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SCDetailDemoAuthor.h"
+@class SCDetailDemoAuthor;
 
 @interface SCDetailFirstCell : UITableViewCell
 // 加载xib

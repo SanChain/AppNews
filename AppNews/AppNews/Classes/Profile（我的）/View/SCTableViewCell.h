@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SCProfileLikes.h"
+@class SCProfileLikes;
 
 @interface SCTableViewCell : UITableViewCell
 + (id)newCell;

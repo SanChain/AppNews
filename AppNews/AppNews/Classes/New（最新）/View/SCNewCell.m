@@ -8,6 +8,7 @@
 
 #import "SCNewCell.h"
 #import "Colours.h"
+#import "SCNewDemoItem.h"
 
 @interface SCNewCell ()
 

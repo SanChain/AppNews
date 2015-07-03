@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SCDetailLikesData.h"
+@class SCDetailLikesData;
 
 #define SCCellMargin 10
 #define SCIconMargin 5

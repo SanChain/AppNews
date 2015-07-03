@@ -54,7 +54,7 @@
                 <outlet property="authorImgView" destination="swy-A2-UdZ" id="ZSt-qu-HAC"/>
                 <outlet property="authorName" destination="ShL-Cb-h2K" id="V5g-ZZ-XVo"/>
             </connections>
-            <point key="canvasLocation" x="567" y="258"/>
+            <point key="canvasLocation" x="500" y="206"/>
         </tableViewCell>
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="secondCell" rowHeight="107" id="cGy-0r-Gsw" customClass="SCSecondCell">
             <rect key="frame" x="0.0" y="0.0" width="385" height="107"/>

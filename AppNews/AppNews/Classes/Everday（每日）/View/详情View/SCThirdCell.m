@@ -10,6 +10,7 @@
 #import "UIButton+WebCache.h"
 #import "SCConst.h"
 #import "Colours.h"
+#import "SCDetailLikesData.h"
 
 @interface SCThirdCell ()
 @property (nonatomic, weak) UIButton *likesBtn;
