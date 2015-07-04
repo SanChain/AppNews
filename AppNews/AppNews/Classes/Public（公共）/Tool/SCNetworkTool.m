@@ -8,6 +8,7 @@
 
 #import "SCNetworkTool.h"
 #import "Reachability.h"
+#import "SCHttpTool.h"
 
 @implementation SCNetworkTool
 
@@ -22,5 +23,7 @@
 {
     return ([[Reachability reachabilityForInternetConnection] currentReachabilityStatus] != NotReachable);
 }
+
+
 
 @end

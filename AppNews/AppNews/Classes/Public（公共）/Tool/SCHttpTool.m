@@ -10,7 +10,6 @@
 #import "AFNetworking.h"
 
 @implementation SCHttpTool
-
 #pragma mark 封装AFN的GET请求
 /**
  *  封装AFN的GET请求

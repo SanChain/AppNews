@@ -21,3 +21,11 @@
 #define SCDetailFirstCellNumber 0
 #define SCDetailSecondCellNumber 1
 #define SCDetailThirdCellNumber 2
+
+// 设置
+#define SCSettingTitleFont [UIFont systemFontOfSize:15]
+#define SCSettingDetailFont [UIFont systemFontOfSize:14]
+#define SCSettingItemMargin 15
+#define SCSettingItemRightMargin 40
+#define SCSettingIconWH 50
+#define SCSettingCellMargin 18

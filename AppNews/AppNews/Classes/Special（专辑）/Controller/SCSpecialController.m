@@ -125,7 +125,7 @@ static NSString * const reuseIdentifier = @"Cell";
         NSIndexSet *set = [NSIndexSet indexSetWithIndexesInRange:range];
         [self.items insertObjects:newItems atIndexes:set];
         
-        SCLog(@"------>>下拉----%zd", self.items.count);
+//        SCLog(@"------>>下拉----%zd", self.items.count);
         
         // 刷新cell
         [self.collectionView reloadData];
@@ -162,7 +162,7 @@ static NSString * const reuseIdentifier = @"Cell";
         // 把旧item数据添加到总数组后面
         [self.items addObjectsFromArray:oldItems];
         
-        SCLog(@"------>>上拉----%zd", self.items.count);
+//        SCLog(@"------>>上拉----%zd", self.items.count);
         
         // 刷新cell
         [self.collectionView reloadData];
@@ -201,7 +201,7 @@ static NSString * const reuseIdentifier = @"Cell";
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     double distance = -SCEdgeInset - scrollView.contentOffset.y;
-    SCLog(@"------scrollview--->%lf", distance);
+//    SCLog(@"------scrollview--->%lf", distance);
     if (scrollCount < 5) {
         scrollCount++;
         return;

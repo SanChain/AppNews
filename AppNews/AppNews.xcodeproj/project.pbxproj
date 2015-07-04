@@ -80,6 +80,10 @@
 		3D61D0AD1B2FD9A70014ED51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D61D0AB1B2FD9A70014ED51 /* AppDelegate.m */; };
 		3D61D0AE1B2FD9A70014ED51 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D61D0AC1B2FD9A70014ED51 /* main.m */; };
 		3D6ACCE51B37D02D00D2AA28 /* SCProfileLikes.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6ACCE41B37D02D00D2AA28 /* SCProfileLikes.m */; };
+		3D6BB0C71B47A68E00E79C06 /* SCSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6BB0C61B47A68E00E79C06 /* SCSettingViewController.m */; };
+		3D6BB0CA1B47A7EA00E79C06 /* SCSettingItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6BB0C91B47A7EA00E79C06 /* SCSettingItem.m */; };
+		3D6BB0CD1B47B06E00E79C06 /* SCSettingItemFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6BB0CC1B47B06E00E79C06 /* SCSettingItemFrame.m */; };
+		3D6BB0D01B47BB3400E79C06 /* SCSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6BB0CF1B47BB3400E79C06 /* SCSettingCell.m */; };
 		3D6E177C1B3305C300663AE8 /* SCNewDemoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6E177B1B3305C300663AE8 /* SCNewDemoItem.m */; };
 		3D6E17801B33256000663AE8 /* SCNewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6E177E1B33255F00663AE8 /* SCNewCell.m */; };
 		3D6E17811B33256000663AE8 /* SCNewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D6E177F1B33255F00663AE8 /* SCNewCell.xib */; };
@@ -124,13 +128,12 @@
 		3DC538371B39C684008689E0 /* SCEverydayDemoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC538341B39C684008689E0 /* SCEverydayDemoItem.m */; };
 		3DD515AC1B41842800DA84B6 /* SCNetworkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD515AB1B41842800DA84B6 /* SCNetworkTool.m */; };
 		3DD515B01B4184B100DA84B6 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD515AF1B4184B100DA84B6 /* Reachability.m */; };
+		3DD5DCF21B46CEB3003397DA /* profileSetting.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3DD5DCF11B46CEB3003397DA /* profileSetting.plist */; };
 		3DD924781B350204003F3105 /* SCWorkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD924771B350204003F3105 /* SCWorkTool.m */; };
 		3DD9247B1B350279003F3105 /* SCSpecialItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD9247A1B350279003F3105 /* SCSpecialItem.m */; };
 		3DD9247F1B350BF6003F3105 /* SCSpecialCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD9247D1B350BF6003F3105 /* SCSpecialCell.m */; };
 		3DD924801B350BF6003F3105 /* SCSpecialCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DD9247E1B350BF6003F3105 /* SCSpecialCell.xib */; };
 		3DD924891B3528C0003F3105 /* SCFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD924881B3528C0003F3105 /* SCFlowLayout.m */; };
-		3DDEAB421B3ECD8E00FF6154 /* SCProfileSettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDEAB401B3ECD8E00FF6154 /* SCProfileSettingController.m */; };
-		3DDEAB451B3ECE9300FF6154 /* SCProfileSetting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DDEAB441B3ECE9300FF6154 /* SCProfileSetting.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -292,6 +295,14 @@
 		3D61D0AC1B2FD9A70014ED51 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3D6ACCE31B37D02D00D2AA28 /* SCProfileLikes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCProfileLikes.h; sourceTree = "<group>"; };
 		3D6ACCE41B37D02D00D2AA28 /* SCProfileLikes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCProfileLikes.m; sourceTree = "<group>"; };
+		3D6BB0C51B47A68E00E79C06 /* SCSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCSettingViewController.h; sourceTree = "<group>"; };
+		3D6BB0C61B47A68E00E79C06 /* SCSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCSettingViewController.m; sourceTree = "<group>"; };
+		3D6BB0C81B47A7EA00E79C06 /* SCSettingItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCSettingItem.h; sourceTree = "<group>"; };
+		3D6BB0C91B47A7EA00E79C06 /* SCSettingItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCSettingItem.m; sourceTree = "<group>"; };
+		3D6BB0CB1B47B06E00E79C06 /* SCSettingItemFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCSettingItemFrame.h; sourceTree = "<group>"; };
+		3D6BB0CC1B47B06E00E79C06 /* SCSettingItemFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCSettingItemFrame.m; sourceTree = "<group>"; };
+		3D6BB0CE1B47BB3400E79C06 /* SCSettingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCSettingCell.h; sourceTree = "<group>"; };
+		3D6BB0CF1B47BB3400E79C06 /* SCSettingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCSettingCell.m; sourceTree = "<group>"; };
 		3D6E177A1B3305C300663AE8 /* SCNewDemoItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCNewDemoItem.h; sourceTree = "<group>"; };
 		3D6E177B1B3305C300663AE8 /* SCNewDemoItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCNewDemoItem.m; sourceTree = "<group>"; };
 		3D6E177D1B33255F00663AE8 /* SCNewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCNewCell.h; sourceTree = "<group>"; };
@@ -372,6 +383,7 @@
 		3DD515AB1B41842800DA84B6 /* SCNetworkTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCNetworkTool.m; sourceTree = "<group>"; };
 		3DD515AE1B4184B100DA84B6 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		3DD515AF1B4184B100DA84B6 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		3DD5DCF11B46CEB3003397DA /* profileSetting.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = profileSetting.plist; sourceTree = "<group>"; };
 		3DD924761B350204003F3105 /* SCWorkTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCWorkTool.h; sourceTree = "<group>"; };
 		3DD924771B350204003F3105 /* SCWorkTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCWorkTool.m; sourceTree = "<group>"; };
 		3DD924791B350279003F3105 /* SCSpecialItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCSpecialItem.h; sourceTree = "<group>"; };
@@ -381,9 +393,6 @@
 		3DD9247E1B350BF6003F3105 /* SCSpecialCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SCSpecialCell.xib; sourceTree = "<group>"; };
 		3DD924871B3528C0003F3105 /* SCFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCFlowLayout.h; sourceTree = "<group>"; };
 		3DD924881B3528C0003F3105 /* SCFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCFlowLayout.m; sourceTree = "<group>"; };
-		3DDEAB3F1B3ECD8E00FF6154 /* SCProfileSettingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCProfileSettingController.h; sourceTree = "<group>"; };
-		3DDEAB401B3ECD8E00FF6154 /* SCProfileSettingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCProfileSettingController.m; sourceTree = "<group>"; };
-		3DDEAB441B3ECE9300FF6154 /* SCProfileSetting.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SCProfileSetting.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -441,6 +450,7 @@
 				3D3F9F411B2BD43500687759 /* LaunchScreen.xib */,
 				3D3F9F331B2BD43500687759 /* Info.plist */,
 				3D227B0F1B44E44F0072F19A /* PrefixHeader.pch */,
+				3DD5DCF11B46CEB3003397DA /* profileSetting.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -472,6 +482,7 @@
 				3D4691D01B2EE684009A852D /* New（最新） */,
 				3D4692491B2EE685009A852D /* Special（专辑） */,
 				3D4691D61B2EE684009A852D /* Profile（我的） */,
+				3D6BB0C11B47A63800E79C06 /* Setting（设置） */,
 				3D4691DC1B2EE684009A852D /* Public（公共） */,
 			);
 			path = Classes;
@@ -609,9 +620,6 @@
 			children = (
 				3D4691D81B2EE684009A852D /* SCProfileController.h */,
 				3D4691D91B2EE684009A852D /* SCProfileController.m */,
-				3DDEAB3F1B3ECD8E00FF6154 /* SCProfileSettingController.h */,
-				3DDEAB401B3ECD8E00FF6154 /* SCProfileSettingController.m */,
-				3DDEAB441B3ECE9300FF6154 /* SCProfileSetting.storyboard */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -939,6 +947,45 @@
 			path = Model/Entry;
 			sourceTree = "<group>";
 		};
+		3D6BB0C11B47A63800E79C06 /* Setting（设置） */ = {
+			isa = PBXGroup;
+			children = (
+				3D6BB0C21B47A63800E79C06 /* Controller */,
+				3D6BB0C31B47A63800E79C06 /* Modal */,
+				3D6BB0C41B47A63800E79C06 /* View */,
+			);
+			path = "Setting（设置）";
+			sourceTree = "<group>";
+		};
+		3D6BB0C21B47A63800E79C06 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3D6BB0C51B47A68E00E79C06 /* SCSettingViewController.h */,
+				3D6BB0C61B47A68E00E79C06 /* SCSettingViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3D6BB0C31B47A63800E79C06 /* Modal */ = {
+			isa = PBXGroup;
+			children = (
+				3D6BB0C81B47A7EA00E79C06 /* SCSettingItem.h */,
+				3D6BB0C91B47A7EA00E79C06 /* SCSettingItem.m */,
+				3D6BB0CB1B47B06E00E79C06 /* SCSettingItemFrame.h */,
+				3D6BB0CC1B47B06E00E79C06 /* SCSettingItemFrame.m */,
+			);
+			path = Modal;
+			sourceTree = "<group>";
+		};
+		3D6BB0C41B47A63800E79C06 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3D6BB0CE1B47BB3400E79C06 /* SCSettingCell.h */,
+				3D6BB0CF1B47BB3400E79C06 /* SCSettingCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		3D7029921B3AF34800D4B9E8 /* 详情View */ = {
 			isa = PBXGroup;
 			children = (
@@ -1165,8 +1212,8 @@
 				3D7290881B36D92C005EAA30 /* SCOptionMenuView.xib in Resources */,
 				3D3F9F401B2BD43500687759 /* Images.xcassets in Resources */,
 				3D7290831B36D686005EAA30 /* SCIntroductionView.xib in Resources */,
+				3DD5DCF21B46CEB3003397DA /* profileSetting.plist in Resources */,
 				3D72900A1B368067005EAA30 /* SCTableViewCell.xib in Resources */,
-				3DDEAB451B3ECE9300FF6154 /* SCProfileSetting.storyboard in Resources */,
 				3D4692881B2F357D009A852D /* ProfileInformation.plist in Resources */,
 				3D4692661B2EE685009A852D /* MJRefresh.bundle in Resources */,
 				3D6E17811B33256000663AE8 /* SCNewCell.xib in Resources */,
@@ -1242,13 +1289,14 @@
 				3DC5382A1B39C51A008689E0 /* SCDetailDemo.m in Sources */,
 				3DA544EC1B3E3C6D0010A897 /* FMDatabasePool.m in Sources */,
 				3D5F284D1B3105690025AC85 /* NSObject+MJProperty.m in Sources */,
+				3D6BB0CD1B47B06E00E79C06 /* SCSettingItemFrame.m in Sources */,
 				3D6E177C1B3305C300663AE8 /* SCNewDemoItem.m in Sources */,
 				3D7029A51B3AF34800D4B9E8 /* SCThirdCell.m in Sources */,
 				3D46926D1B2EE685009A852D /* MJRefreshLegendFooter.m in Sources */,
-				3DDEAB421B3ECD8E00FF6154 /* SCProfileSettingController.m in Sources */,
 				3D4692701B2EE685009A852D /* UIScrollView+MJRefresh.m in Sources */,
 				3D4692691B2EE685009A852D /* MJRefreshFooter.m in Sources */,
 				3D4692621B2EE685009A852D /* AFURLSessionManager.m in Sources */,
+				3D6BB0D01B47BB3400E79C06 /* SCSettingCell.m in Sources */,
 				3D5F284C1B3105690025AC85 /* NSObject+MJKeyValue.m in Sources */,
 				3D5F28491B3105690025AC85 /* MJProperty.m in Sources */,
 				3D88C7851B30581F0073A6EA /* MBProgressHUD+MJ.m in Sources */,
@@ -1274,6 +1322,7 @@
 				3D46924F1B2EE685009A852D /* SCEverydayController.m in Sources */,
 				3D61D0AD1B2FD9A70014ED51 /* AppDelegate.m in Sources */,
 				3D46925E1B2EE685009A852D /* AFSecurityPolicy.m in Sources */,
+				3D6BB0C71B47A68E00E79C06 /* SCSettingViewController.m in Sources */,
 				3D7290861B36D914005EAA30 /* SCOptionMenuView.m in Sources */,
 				3D46925A1B2EE685009A852D /* AFHTTPRequestOperation.m in Sources */,
 				3D46925F1B2EE685009A852D /* AFURLConnectionOperation.m in Sources */,
@@ -1282,6 +1331,7 @@
 				3DA544ED1B3E3C6D0010A897 /* FMDatabaseQueue.m in Sources */,
 				3D4692811B2EE685009A852D /* UIView+WebCacheOperation.m in Sources */,
 				3D5F284E1B3105690025AC85 /* NSString+Extension.m in Sources */,
+				3D6BB0CA1B47A7EA00E79C06 /* SCSettingItem.m in Sources */,
 				3D46926E1B2EE685009A852D /* MJRefreshLegendHeader.m in Sources */,
 				3D5F282B1B30FDC00025AC85 /* SCEverydayCell.m in Sources */,
 				3DD515B01B4184B100DA84B6 /* Reachability.m in Sources */,
@@ -1413,12 +1463,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-1";
 				CODE_SIGN_IDENTITY = "iPhone Developer: Jari Aho (N6UX62EFNQ)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = AppNews/PrefixHeader.pch;
 				INFOPLIST_FILE = AppNews/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = AppNews;
 				PROVISIONING_PROFILE = "a514fc22-2f58-4a0f-b670-b42ceef6feeb";
@@ -1429,12 +1479,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-1";
 				CODE_SIGN_IDENTITY = "iPhone Developer: Jari Aho (N6UX62EFNQ)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = AppNews/PrefixHeader.pch;
 				INFOPLIST_FILE = AppNews/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = AppNews;
 				PROVISIONING_PROFILE = "a514fc22-2f58-4a0f-b670-b42ceef6feeb";

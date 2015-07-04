@@ -88,7 +88,7 @@
 
 
 
-// 计算文件大小
+#pragma makr 计算文件大小
 - (NSInteger)fileSize
 {
     NSFileManager *mgr = [NSFileManager defaultManager];
