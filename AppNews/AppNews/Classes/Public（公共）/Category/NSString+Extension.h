@@ -37,7 +37,7 @@
 // 返回CGSize, 计算一大块文字的尺寸(size)
 - (CGSize)sizeWithfont:(UIFont *)font maxW:(CGFloat)maxW;
 
-// 计算文件大小
+// 计算文件大小(字节）
 - (NSInteger)fileSize;
 
 

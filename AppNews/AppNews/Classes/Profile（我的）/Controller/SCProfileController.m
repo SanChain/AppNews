@@ -21,8 +21,6 @@
 #import "MBProgressHUD+MJ.h"
 #import "SCDbTool.h"
 #import "SCSettingViewController.h"
-#import "SDImageCache.h"
-#import "NSString+Extension.h"
 
 @interface SCProfileController ()
 /** 选项菜单 */
@@ -255,21 +253,6 @@ static NSInteger page = 1;
     SCSettingViewController *settingVc = [[SCSettingViewController alloc] initWithStyle:UITableViewStyleGrouped];
     [self.navigationController pushViewController:settingVc animated:YES];
     
-}
-
-- (void)clearCachaes
-{
-    // 清除缓存（删除SDWebImage下载的图片）
-    [[SDImageCache sharedImageCache] clearDisk];
-    
-    // 清除数据库的缓存(数据库缓存是很小的，一般不用删除）
-    NSString *cachesPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
-    NSString *dbPath = [cachesPath stringByAppendingPathComponent:@"demo.sqlite"];
-    SCLog(@"---%@", cachesPath);
-    // 计算缓存目录的大小
-    SCLog(@"---------数据库缓存目录的大小：%zdkB", [cachesPath fileSize] / 1024);
-    NSFileManager *mgr = [NSFileManager defaultManager];
-    [mgr removeItemAtPath:dbPath error:nil];
 }
 
 #pragma mark - 监听rightBarButtonItem

@@ -65,7 +65,6 @@
 
     // 取消相应的推送
     NSArray *array =  application.scheduledLocalNotifications;
-    NSLog(@"---->%@", array);
     for (UILocalNotification *localNoti in array) {
         NSDictionary *dict = localNoti.userInfo;
         NSString *string  = dict[@"key"];

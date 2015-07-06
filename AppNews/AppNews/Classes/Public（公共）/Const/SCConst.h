@@ -1,6 +1,5 @@
 
 
-#import <Foundation/Foundation.h>
 
 
 #define SCColour(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
@@ -29,3 +28,12 @@
 #define SCSettingItemRightMargin 40
 #define SCSettingIconWH 50
 #define SCSettingCellMargin 18
+
+#define SCIntroMessage @"SCIntroMessage"
+#define SCNickMessage @"SCNickMessage"
+extern const NSString *SCNickNameMassage;
+extern const NSString *SCTextViewMassage;
+
+
+
+
