@@ -22,6 +22,9 @@
 #import "SCThirdCell.h"
 #import "SCFourthCell.h"
 #import "SCHttpTool.h"
+#import "UMSocial.h"
+
+
 
 @interface SCDetailViewController ()<UIWebViewDelegate, UITableViewDataSource, UITableViewDelegate>
 
@@ -156,7 +159,6 @@ static NSString *ID = @"cell";
         [MBProgressHUD hideHUD];
     }];
 }
-
 
 #pragma mark 监听titleView点击
 - (void)clickSegmentedControll:(UISegmentedControl *)seg
@@ -303,6 +305,15 @@ static NSString *ID = @"cell";
 - (void)share
 {
     NSLog(@"share-----%@", self.demoID);
+    // 友盟分享面板
+    [UMSocialSnsService presentSnsIconSheetView:self
+                                         appKey:@"559a30d567e58e51b6002916"
+                                      shareText:@"分享demo..."
+                                     shareImage:nil
+                                shareToSnsNames:[NSArray arrayWithObjects:UMShareToSina, UMShareToTencent, UMShareToQzone, UMShareToSms, UMShareToWechatSession, UMShareToWechatTimeline, UMShareToQQ, UMShareToWhatsapp, UMShareToDouban, nil]
+                                       delegate:nil];
+    // 分享demoWebsite(demo的网页)
+    [[UMSocialData defaultData].urlResource setResourceType:UMSocialUrlResourceTypeImage url:self.detailDemo.website];
 }
 
 

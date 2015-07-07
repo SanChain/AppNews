@@ -14,6 +14,10 @@
 #import "SCAccount.h"
 #import "SCAccountTool.h"
 #import "SDWebImageManager.h"
+#import "UMSocial.h"
+#import "UMSocialSinaHandler.h"
+#import "UMSocialQQHandler.h"
+#import "UMSocialWechatHandler.h"
 
 @interface AppDelegate ()
 
@@ -52,8 +56,42 @@
         }
     }
     
+    
+    /***********************友盟分享*****************************/
+    
+    
+    [UMSocialData setAppKey:@"559a30d567e58e51b6002916"];
+    
+    // 新浪微博SSO授权,打开开关（非原生SDK)
+    [UMSocialSinaHandler openSSOWithRedirectURL:@"http://sns.whalecloud.com/sina2/callback"];
+    
+    //设置微信AppId、appSecret，分享url
+    [UMSocialWechatHandler setWXAppId:@"wxd930ea5d5a258f4f" appSecret:@"db426a9829e4b49a0dcac7b4162da6b6" url:@"http://www.umeng.com/social"];
+    //设置手机QQ 的AppId，Appkey，和分享URL，需要#import "UMSocialQQHandler.h"
+    [UMSocialQQHandler setQQWithAppId:@"100424468" appKey:@"c7394704798a158208a74ab60104f0ba" url:@"http://www.umeng.com/social"];
+    
     return YES;
 }
+
+// 友盟分享_系统回调
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
+{
+    return  [UMSocialSnsService handleOpenURL:url];
+}
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation
+{
+    return  [UMSocialSnsService handleOpenURL:url];
+}
+
+
+
+
+
+/****************************本地推送********************************/
+
 
 /**
  *  程序在前台会自动调用这个方法
