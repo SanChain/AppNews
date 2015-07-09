@@ -316,9 +316,6 @@ static NSString *ID = @"cell";
     [[UMSocialData defaultData].urlResource setResourceType:UMSocialUrlResourceTypeImage url:self.detailDemo.website];
 }
 
-
-
-
 #pragma mark 导航条属性设置
 - (void)setupNavigationBarAttribute
 {

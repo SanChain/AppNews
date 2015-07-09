@@ -43,7 +43,7 @@
                 <outlet property="itemImage" destination="3YN-oe-ik3" id="vsx-Yn-ysO"/>
                 <outlet property="itemTitle" destination="fYk-7t-nmW" id="Q0f-Uq-Qpu"/>
             </connections>
-            <point key="canvasLocation" x="595.5" y="202"/>
+            <point key="canvasLocation" x="209.5" y="120"/>
         </collectionViewCell>
     </objects>
 </document>

@@ -21,6 +21,7 @@
 #import "MBProgressHUD+MJ.h"
 #import "SCDbTool.h"
 #import "SCSettingViewController.h"
+#import "SCMyAddressController.h"
 
 @interface SCProfileController ()
 /** 选项菜单 */
@@ -242,24 +243,24 @@ static NSInteger page = 1;
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(clickSettingItem) image:@"navigationbar_setting" highImage:@"navigationbar_setting_highlighted"];
     
     // rightBarButtonItem
-    UIImage *rightImage = [[UIImage imageNamed:@"tabbar_compose_background_icon_add"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:rightImage style:UIBarButtonItemStyleDone target:self action:@selector(clickAddItem)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"定位" style:UIBarButtonItemStyleBordered target:self action:@selector(clickAddItem)];
+    
+    
 }
 
 #pragma mark - 监听leftBarButtonI tem
 - (void)clickSettingItem
 {
-    SCLog(@"%s", __func__);
     SCSettingViewController *settingVc = [[SCSettingViewController alloc] initWithStyle:UITableViewStyleGrouped];
     [self.navigationController pushViewController:settingVc animated:YES];
     
 }
 
-#pragma mark - 监听rightBarButtonItem
+#pragma mark - 我的位置
 - (void)clickAddItem
 {
-#warning TODO 二维码、百度地图
-    NSLog(@"%s", __func__);
+    SCMyAddressController *addressVc = [[SCMyAddressController alloc] init];
+    [self.navigationController pushViewController:addressVc animated:YES];
 }
 
 @end

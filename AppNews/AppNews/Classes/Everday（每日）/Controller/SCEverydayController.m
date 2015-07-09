@@ -98,8 +98,8 @@ typedef enum {
 {
     // 本地通知对象
     UILocalNotification *localNotification = [[UILocalNotification alloc] init];
-    localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:30];
-    localNotification.repeatInterval = kCFCalendarUnitMonth;
+    localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:3600*24*365];
+    localNotification.repeatInterval = kCFCalendarUnitYear;
     localNotification.timeZone = [NSTimeZone defaultTimeZone];
     localNotification.alertBody = @"学习iOS";
     localNotification.alertAction = @"查看吧";

@@ -44,5 +44,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>亲，如果相使用定位功能，请允许“使用您的位置”，否则会无法正常使用！本软件不会泄露或保存你的任何信息。</string>
 </dict>
 </plist>
