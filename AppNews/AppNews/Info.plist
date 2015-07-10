@@ -7,7 +7,7 @@
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.SanChain.$(PRODUCT_NAME:rfc1034identifier)</string>
+	<string>com.SanChain</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -25,8 +25,15 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>sina.</string>
-				<string>559a30d567e58e51b6002916</string>
+				<string>sina.559a30d567e58e51b6002916</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>wx0134f38466aeeabc</string>
 			</array>
 		</dict>
 	</array>
@@ -34,6 +41,8 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>亲，如果相使用定位功能，请允许“使用您的位置”，否则会无法正常使用！本软件不会泄露或保存你的任何信息。</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
@@ -44,7 +53,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>亲，如果相使用定位功能，请允许“使用您的位置”，否则会无法正常使用！本软件不会泄露或保存你的任何信息。</string>
 </dict>
 </plist>

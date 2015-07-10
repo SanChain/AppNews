@@ -279,7 +279,7 @@ static NSString *ID = @"cell";
     [self.webView removeFromSuperview]; // 内存优化
     
     // 设置网络请求超时时间
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:self.detailDemo.website] cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:8.0];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:self.detailDemo.website] cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:10.0];
     
     [self.webView loadRequest:request];
     
@@ -308,12 +308,18 @@ static NSString *ID = @"cell";
     // 友盟分享面板
     [UMSocialSnsService presentSnsIconSheetView:self
                                          appKey:@"559a30d567e58e51b6002916"
-                                      shareText:@"分享demo..."
+                                      shareText:nil
                                      shareImage:nil
                                 shareToSnsNames:[NSArray arrayWithObjects:UMShareToSina, UMShareToTencent, UMShareToQzone, UMShareToSms, UMShareToWechatSession, UMShareToWechatTimeline, UMShareToQQ, UMShareToWhatsapp, UMShareToDouban, nil]
                                        delegate:nil];
     // 分享demoWebsite(demo的网页)
     [[UMSocialData defaultData].urlResource setResourceType:UMSocialUrlResourceTypeImage url:self.detailDemo.website];
+    
+    [UMSocialData defaultData].extConfig.wxMessageType = UMSocialWXMessageTypeWeb;
+    [UMSocialData defaultData].extConfig.wechatTimelineData.url = self.detailDemo.website;
+    
+    [UMSocialData defaultData].extConfig.wechatSessionData.url = self.detailDemo.website;
+
 }
 
 #pragma mark 导航条属性设置
