@@ -64,7 +64,7 @@
     selectTextAttr[NSForegroundColorAttributeName] = [UIColor orangeColor];
     [childVC.tabBarItem setTitleTextAttributes:selectTextAttr forState:UIControlStateSelected];
     
-    // 结构：UITabBarController -> UINavigatioinController -> UIViewController
+    // 结构：UITabBarController -> UINavigatioinController -> UICollectionViewController
      SCNavigationController *navC = [[SCNavigationController alloc] initWithRootViewController:childVC];
     [self addChildViewController:navC];
 }

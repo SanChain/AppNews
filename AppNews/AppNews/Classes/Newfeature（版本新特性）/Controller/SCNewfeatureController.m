@@ -73,10 +73,10 @@
 {
     imageView.userInteractionEnabled = YES; // 交互
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    [button setTitle:@"进入demo的世界" forState:UIControlStateNormal];
+    [button setTitle:@"欢迎来到APP的世界" forState:UIControlStateNormal];
     [button setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     [button setTitleColor:[UIColor orangeColor] forState:UIControlStateHighlighted];
-    button.size = CGSizeMake(150, 80);
+    button.size = CGSizeMake(200, 80);
     CGFloat btnCentX = SCScreenWith * 0.5;
     CGFloat btnCentY = SCScreenHeight * 0.9;
     button.center = CGPointMake(btnCentX, btnCentY);

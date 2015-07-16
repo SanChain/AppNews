@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="80" width="197" height="14"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3YN-oe-ik3">
@@ -43,7 +43,7 @@
                 <outlet property="itemImage" destination="3YN-oe-ik3" id="vsx-Yn-ysO"/>
                 <outlet property="itemTitle" destination="fYk-7t-nmW" id="Q0f-Uq-Qpu"/>
             </connections>
-            <point key="canvasLocation" x="209.5" y="120"/>
+            <point key="canvasLocation" x="235.5" y="126"/>
         </collectionViewCell>
     </objects>
 </document>

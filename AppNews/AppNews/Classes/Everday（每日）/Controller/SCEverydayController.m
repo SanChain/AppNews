@@ -31,6 +31,9 @@
 /** 网络连接状态对象 */
 @property (nonatomic, strong) Reachability *reachability;
 @property (nonatomic, weak) UIView *hudView;
+
+@property (nonatomic, strong) SCCheckNetworkController *checkVc;
+
 @end
 
 /** 上拉刷新时全局变量保存页码 */
@@ -67,6 +70,14 @@ typedef enum {
     return _frameArrayM;
 }
 
+- (SCCheckNetworkController *)checkVc
+{
+    if (!_checkVc) {
+        _checkVc = [[SCCheckNetworkController alloc] init];
+    }
+    return _checkVc;
+}
+
 
 
 - (void)viewDidLoad {
@@ -98,10 +109,10 @@ typedef enum {
 {
     // 本地通知对象
     UILocalNotification *localNotification = [[UILocalNotification alloc] init];
-    localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:3600*24*365];
+    localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:120];
     localNotification.repeatInterval = kCFCalendarUnitYear;
     localNotification.timeZone = [NSTimeZone defaultTimeZone];
-    localNotification.alertBody = @"学习iOS";
+    localNotification.alertBody = @"学习iOS啦...";
     localNotification.alertAction = @"查看吧";
     localNotification.soundName = UILocalNotificationDefaultSoundName;
     localNotification.userInfo = [NSDictionary dictionaryWithObject:@"新的开始" forKey:@"key"];
@@ -163,14 +174,12 @@ typedef enum {
             // 不能跳转到手机的设置界面，用说明的形式向用户展示如何设置wifi
             NSLog(@"查看WiFi设置");
             [self autoRefresh];
-            SCCheckNetworkController *checkVc = [[SCCheckNetworkController alloc] init];
-            [self.navigationController pushViewController:checkVc animated:YES];
+            [self.navigationController pushViewController:self.checkVc animated:YES];
         }
         
     } else if (alertView.tag == secondAlertViewTag){ // 没有网络
         if (buttonIndex == 0) {
-            SCCheckNetworkController *checkVc = [[SCCheckNetworkController alloc] init];
-            [self.navigationController pushViewController:checkVc animated:YES];
+            [self.navigationController pushViewController:self.checkVc animated:YES];
             
         }
     }
